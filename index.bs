@@ -113,8 +113,8 @@ Location: https://example.com/privacy
 Clients making automated requests for well-known privacy policy URLs are encouraged to do so with
 the request's [=request/credentials mode=] set to `omit`.
 
-The `privacy` Link Type {#link-type}
-====================================
+The `privacy-policy` Link Type {#link-type}
+===========================================
 
 Sites are encouraged to place links to their privacy policy in conspicuous places where users might
 look for them. To improve discoverability, this document defines the `privacy-policy` [=link type=]
