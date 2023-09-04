@@ -8,6 +8,7 @@
   <meta content="Bikeshed version 63e66730b, updated Tue Oct 25 12:35:05 2022 -0700" name="generator">
   <link href="https://mikewest.github.io/privacy-policy-discovery/" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
+  <meta content="9588b4af5723669f246f6c886a30a29440e940c1" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -582,13 +583,15 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Privacy Policy Discovery</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#UD">Unofficial Proposal Draft</a>, <time class="dt-updated" datetime="2023-08-23">23 August 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#UD">Unofficial Proposal Draft</a>, <time class="dt-updated" datetime="2023-09-04">4 September 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
      <dl>
       <dt>This version:
       <dd><a class="u-url" href="https://mikewest.github.io/privacy-policy-discovery/">https://mikewest.github.io/privacy-policy-discovery/</a>
+      <dt>Issue Tracking:
+      <dd><a href="https://github.com/mikewest/privacy-policy-discovery/issues/">GitHub</a>
       <dt class="editor">Editor:
       <dd class="editor p-author h-card vcard" data-editor-id="56384"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
      </dl>
@@ -602,8 +605,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This specification defines a well-known URL which allows an origin to make its privacy policy
 
-  easily discoverable: `/.well-known/privacy-policy`. It also defines a link type which can likewise
-  improve discoverability: rel="privacy-policy".</p>
+  easily discoverable: <code>/.well-known/privacy-policy</code>. It also defines a link type which
+  can likewise improve discoverability: <code>rel="privacy-policy"</code>.</p>
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
@@ -677,11 +680,11 @@ to (and manipulatable by) anyone on the network between the client and the serve
      <p>Let <var>url</var> be a new URL with values set as follows:</p>
      <ul>
       <li data-md>
-       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-scheme" id="ref-for-concept-url-scheme">scheme</a>: _origin_’s scheme.</p>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-scheme" id="ref-for-concept-url-scheme">scheme</a>: <var>origin</var>’s scheme.</p>
       <li data-md>
-       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-host" id="ref-for-concept-url-host">host</a>: origin’s host.</p>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-host" id="ref-for-concept-url-host">host</a>: <var>origin</var>’s host.</p>
       <li data-md>
-       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-port" id="ref-for-concept-url-port">port</a>: origin’s port.</p>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-port" id="ref-for-concept-url-port">port</a>: <var>origin</var>’s port.</p>
       <li data-md>
        <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-path" id="ref-for-concept-url-path①">path</a>: « ".well-known", "privacy-policy" »</p>
      </ul>
@@ -691,15 +694,14 @@ to (and manipulatable by) anyone on the network between the client and the serve
    <p>Servers complying with this document’s recommendations SHOULD respond to requests for an origin’s <a data-link-type="dfn" href="#well-known-privacy-policy-url" id="ref-for-well-known-privacy-policy-url">well-known privacy policy URL</a> with a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response">response</a> whose <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-status" id="ref-for-concept-response-status">status</a> is one of
 « 302, 303, 307 », and which contains a <code>Location</code> header whose value is the origin’s <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url①">privacy policy URL</a>. Servers MAY also return a <code>Location</code> header whose value is a URL that,
 in turn, redirects to the origin’s privacy policy URL.</p>
-   <p class="note" role="note"><span>Note:</span> The status codes here support only temporary redirects. As discussed in
-https://github.com/w3c/webappsec-change-password-url/issues/13, this intentionally excludes
-permanent redirect codes in order to ensure that intermediate caches and client applications
-continue to check the well-known URL to catch changes in a site’s structure.</p>
+   <p class="note" role="note"><span>Note:</span> The status codes here support only temporary redirects. As discussed in <a href="https://github.com/w3c/webappsec-change-password-url/issues/13">w3c/webappsec-change-password-url#13</a>,
+this intentionally excludes permanent redirect codes in order to ensure that intermediate caches and
+client applications continue to check the well-known URL to catch changes in a site’s structure.</p>
    <p>Further, an origin’s <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url②">privacy policy URL</a> does not need to live on that origin. Clients should
 support a setup allowing <code>https://example.com</code>'s privacy policy to live on <code>https://policies.example.com/privacy</code> or <code>https://holding-company.example/privacy</code>,
 for example.</p>
    <p>Given the potentially-cross-origin nature of these requests, clients making automated requests for
-well-known privacy policy URLs are encouraged to do so with the request’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode" id="ref-for-concept-request-credentials-mode">credentials mode</a> set to <code>omit</code>.</p>
+well-known privacy policy URLs are encouraged to do so with the request’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode" id="ref-for-concept-request-credentials-mode">credentials mode</a> set to <code>omit</code> and its <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-referrer" id="ref-for-concept-request-referrer">referrer</a> set to <code>no-referrer</code>.</p>
    <div class="example" id="example-8fcb2d39">
     <a class="self-link" href="#example-8fcb2d39"></a> Assuming that <code>https://example.com/</code> has a privacy policy which lives at <code>https://example.com/privacy</code>, then a server should respond to a client’s request for <code>https://example.com/.well-known/privacy-policy</code> with a response like the following: 
 <pre class="language-http highlight"><c- kr>HTTP</c-><c- o>/</c-><c- m>1.1</c-> <c- m>307</c-> <c- ne>Temporary Redirect</c->
@@ -747,18 +749,23 @@ that apply to the current context. This may be a standalone privacy policy, or a
 section of some more general document.</p>
    </dl>
    <div class="note" role="note">
-     Note: The <a href="https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions">microformats wiki existing-rel-values page</a> contains a reference to a <code>privacy</code> link type. This document suggests <code>privacy-policy</code>, as that
+     Note: The <a href="https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions">microformats wiki existing-rel-values page</a> contains a reference to a <code>privacy</code> link type. This document suggests "<code>privacy-policy</code>" instead, as that
 seems to be more commonly used on today’s internet: HTTP Archive data from August, 2023 suggests
 that <code>rel="privacy-policy"</code> was used on 285,421 distinct documents, while <code>rel="privacy"</code> was used
 on only 692. 
-<pre class="language-sql highlight"><c- k>SELECT</c->
+    <details>
+     <summary>HTTP Archive Query</summary>
+<pre class="language-sql highlight"><c- c1>-- This query is an undercount (insofar as it doesn’t account for</c->
+<c- c1>-- multiple link types), but likely in the right order of magnitude.</c->
+<c- k>SELECT</c->
   <c- n>COUNTIF</c-><c- p>(</c-><c- n>REGEXP_CONTAINS</c-><c- p>(</c-><c- k>LOWER</c-><c- p>(</c-><c- n>body</c-><c- p>),</c-> <c- n>r</c-><c- ss>"rel=(privacy[ >]|\'privacy\'|\"</c-><c- n>privacy</c->\<c- ss>")"</c-><c- p>))</c-> <c- k>as</c-> <c- n>privacy</c-><c- p>,</c->
   <c- n>COUNTIF</c-><c- p>(</c-><c- n>REGEXP_CONTAINS</c-><c- p>(</c-><c- k>LOWER</c-><c- p>(</c-><c- n>body</c-><c- p>),</c-> <c- n>r</c-><c- ss>"rel=(privacy-policy|\'privacy-policy\'|\"</c-><c- n>privacy</c-><c- o>-</c-><c- n>policy</c->\<c- ss>")"</c-><c- p>))</c-> <c- k>as</c-> <c- n>privacy_policy</c->
 <c- k>FROM</c->
-  <c- o>&lt;</c-><c- n>code</c-> <c- k>data</c-><c- o>-</c-><c- n>opaque</c-> <c- n>bs</c-><c- o>-</c-><c- n>autolink</c-><c- o>-</c-><c- n>syntax</c-><c- o>=</c-><c- t>'`httparchive.response_bodies.2023_08_01_desktop`'</c-><c- o>></c-><c- n>httparchive</c-><c- p>.</c-><c- n>response_bodies</c-><c- p>.</c-><c- mi>2023</c-><c- n>_08_01_desktop</c-><c- o>&lt;/</c-><c- n>code</c-><c- o>></c->
+  <c- o>`</c-><c- n>httparchive</c-><c- p>.</c-><c- n>response_bodies</c-><c- p>.</c-><c- mi>2023</c-><c- n>_08_01_desktop</c-><c- o>`</c->
 <c- k>WHERE</c->
   <c- n>page</c-> <c- o>=</c-> <c- n>url</c->
 </pre>
+    </details>
    </div>
    <h2 class="heading settled" data-level="4" id="impl"><span class="secno">4. </span><span class="content">Implementation Considerations</span><a class="self-link" href="#impl"></a></h2>
    <p>This document defines a mechanism through which one and only one privacy policy can be declared as
@@ -825,6 +832,12 @@ the IESG for review, approval, and registration with IANA using the template def
    <a href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode">https://fetch.spec.whatwg.org/#concept-request-credentials-mode</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-concept-request-credentials-mode">2. The privacy-policy Well-Known URL</a> <a href="#ref-for-concept-request-credentials-mode①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-concept-request-referrer">
+   <a href="https://fetch.spec.whatwg.org/#concept-request-referrer">https://fetch.spec.whatwg.org/#concept-request-referrer</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-concept-request-referrer">2. The privacy-policy Well-Known URL</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-response">
@@ -938,6 +951,7 @@ the IESG for review, approval, and registration with IANA using the template def
     <a data-link-type="biblio">[FETCH]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-concept-request-credentials-mode">credentials mode</span>
+     <li><span class="dfn-paneled" id="term-for-concept-request-referrer">referrer</span>
      <li><span class="dfn-paneled" id="term-for-concept-response">response</span>
      <li><span class="dfn-paneled" id="term-for-concept-response-status">status</span>
     </ul>

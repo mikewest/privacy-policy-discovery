@@ -8,8 +8,8 @@ Editor: Mike West 56384, Google Inc., mkwst@google.com
 Markup Shorthands: markdown yes
 Abstract:
   This specification defines a well-known URL which allows an origin to make its privacy policy
-  easily discoverable: `/.well-known/privacy-policy`. It also defines a link type which can likewise
-  improve discoverability: rel="privacy-policy". 
+  easily discoverable: <code>/.well-known/privacy-policy</code>. It also defines a link type which
+  can likewise improve discoverability: <code>rel="privacy-policy"</code>.
 </pre>
 <pre class='link-defaults'>
 spec:html; type:element; text:a
@@ -70,9 +70,9 @@ policy URL</dfn> by running the following steps:
 
 3.  Let |url| be a new URL with values set as follows:
 
-    *   [=url/scheme=]: _origin_'s scheme.
-    *   [=url/host=]: origin's host.
-    *   [=url/port=]: origin's port.
+    *   [=url/scheme=]: |origin|'s scheme.
+    *   [=url/host=]: |origin|'s host.
+    *   [=url/port=]: |origin|'s port.
     *   [=url/path=]: « ".well-known", "privacy-policy" »
 
 4. Return |url|.
@@ -84,9 +84,9 @@ Servers complying with this document's recommendations SHOULD respond to request
 in turn, redirects to the origin's privacy policy URL. 
 
 Note: The status codes here support only temporary redirects. As discussed in
-https://github.com/w3c/webappsec-change-password-url/issues/13, this intentionally excludes
-permanent redirect codes in order to ensure that intermediate caches and client applications
-continue to check the well-known URL to catch changes in a site's structure.
+[w3c/webappsec-change-password-url#13](https://github.com/w3c/webappsec-change-password-url/issues/13),
+this intentionally excludes permanent redirect codes in order to ensure that intermediate caches and
+client applications continue to check the well-known URL to catch changes in a site's structure.
 
 Further, an origin's [=privacy policy URL=] does not need to live on that origin. Clients should
 support a setup allowing `https://example.com`'s privacy policy to live on
@@ -95,7 +95,7 @@ for example.
 
 Given the potentially-cross-origin nature of these requests, clients making automated requests for
 well-known privacy policy URLs are encouraged to do so with the request's
-[=request/credentials mode=] set to `omit`.
+[=request/credentials mode=] set to `omit` and its [=request/referrer=] set to `no-referrer`.
 
 <div class="example">
 Assuming that `https://example.com/` has a privacy policy which lives at
@@ -157,20 +157,29 @@ This extension to HTML's set of link types has the following properties:
 
 <div class="note">
 Note: The [microformats wiki existing-rel-values page](https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions)
-contains a reference to a `privacy` link type. This document suggests `privacy-policy`, as that
+contains a reference to a `privacy` link type. This document suggests "`privacy-policy`" instead, as that
 seems to be more commonly used on today's internet: HTTP Archive data from August, 2023 suggests
 that `rel="privacy-policy"` was used on 285,421 distinct documents, while `rel="privacy"` was used
 on only 692.
 
+<details>
+  <summary>HTTP Archive Query</summary>
+
 ```sql
+-- This query is an undercount (insofar as it doesn't account for
+-- multiple link types), but likely in the right order of magnitude.
 SELECT
   COUNTIF(REGEXP_CONTAINS(LOWER(body), r"rel=(privacy[ >]|\'privacy\'|\"privacy\")")) as privacy,
   COUNTIF(REGEXP_CONTAINS(LOWER(body), r"rel=(privacy-policy|\'privacy-policy\'|\"privacy-policy\")")) as privacy_policy
 FROM
-  `httparchive.response_bodies.2023_08_01_desktop`
+  \`httparchive.response_bodies.2023_08_01_desktop\`
 WHERE
   page = url
 ```
+
+
+</details>
+
 </div>
 
 
