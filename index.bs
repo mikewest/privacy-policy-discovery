@@ -198,8 +198,8 @@ origin, as is storage, and potential server-side interrelations between pages ar
 user. Site operators are encouraged to make such a global policy available.
 
 It's important to note, however, that websites might host privacy policies for applications that
-run outside the context of the web platform. `https://amazing-mobile-app.example` might offer a PWA
-alongside native apps on multiple platforms with differing data collection and usage
+run outside the context of the web platform. `https://amazing-mobile-app.example` might offer a
+website alongside native apps on multiple platforms with differing data collection and usage
 characteristics. In this case, clients should expect `/.well-known/privacy-policy` to represent the
 privacy policy that applies to the web origin.
 
