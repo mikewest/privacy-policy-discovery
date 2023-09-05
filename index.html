@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 63e66730b, updated Tue Oct 25 12:35:05 2022 -0700" name="generator">
   <link href="https://mikewest.github.io/privacy-policy-discovery/" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="9588b4af5723669f246f6c886a30a29440e940c1" name="document-revision">
+  <meta content="347bd6b004e3f93f2744499375e5bbe5edefdf8e" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -583,7 +583,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Privacy Policy Discovery</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#UD">Unofficial Proposal Draft</a>, <time class="dt-updated" datetime="2023-09-04">4 September 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#UD">Unofficial Proposal Draft</a>, <time class="dt-updated" datetime="2023-09-05">5 September 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -618,8 +618,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <ol class="toc" role="directory">
     <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
     <li><a href="#well-known"><span class="secno">2</span> <span class="content">The <code>privacy-policy</code> Well-Known URL</span></a>
-    <li><a href="#link-type"><span class="secno">3</span> <span class="content">The <code>privacy</code> Link Type</span></a>
-    <li><a href="#impl"><span class="secno">4</span> <span class="content">Implementation Considerations</span></a>
+    <li><a href="#link-type"><span class="secno">3</span> <span class="content">The <code>privacy-policy</code> Link Type</span></a>
+    <li>
+     <a href="#impl"><span class="secno">4</span> <span class="content">Implementation Considerations</span></a>
+     <ol class="toc">
+      <li><a href="#scope"><span class="secno">4.1</span> <span class="content">Scope</span></a>
+      <li><a href="#p3p"><span class="secno">4.2</span> <span class="content">Relation to P3P</span></a>
+     </ol>
     <li><a href="#iana"><span class="secno">5</span> <span class="content">IANA Considerations</span></a>
     <li><a href="#acks"><span class="secno">6</span> <span class="content">Acknowledgements</span></a>
     <li>
@@ -660,14 +665,14 @@ in the user agent’s UI):</p>
     <li data-md>
      <p><a href="#well-known">§ 2 The privacy-policy Well-Known URL</a> defines the <code>/.well-known/privacy-policy</code> well-known URI <a data-link-type="biblio" href="#biblio-rfc8615">[RFC8615]</a>.</p>
     <li data-md>
-     <p><a href="#link-type">§ 3 The privacy Link Type</a> defines the <code>privacy-policy</code> link type, which can be used to annotate <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element">a</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> elements that reference the privacy policy that applies to a given document
+     <p><a href="#link-type">§ 3 The privacy-policy Link Type</a> defines the <code>privacy-policy</code> link type, which can be used to annotate <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element">a</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> elements that reference the privacy policy that applies to a given document
 (<code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element" id="ref-for-the-area-element">area</a></code> too, I suppose).</p>
    </ol>
    <h2 class="heading settled" data-level="2" id="well-known"><span class="secno">2. </span><span class="content">The <code>privacy-policy</code> Well-Known URL</span><a class="self-link" href="#well-known"></a></h2>
    <p>An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="privacy-policy-url">privacy policy URL</dfn> is a URL that directly identifies the origin’s privacy
 policy resource. An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="well-known-privacy-policy-url">well-known privacy policy URL</dfn> is a URL whose <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-path" id="ref-for-concept-url-path">path</a> component is <code>/.well-known/privacy-policy</code>. It returns a response that redirects to the <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url">privacy policy URL</a>, thereby facilitating its automated discovery.</p>
-   <p>Given an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin" id="ref-for-concept-origin">origin</a> (<var>origin</var>), a client can <dfn data-dfn-type="abstract-op" data-export data-lt="construct a well-known privacy policy URL" id="abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy
-policy URL<a class="self-link" href="#abstract-opdef-construct-a-well-known-privacy-policy-url"></a></dfn> by running the following steps:</p>
+   <p>Given an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin" id="ref-for-concept-origin">origin</a> (<var>origin</var>), a client can <dfn class="dfn-paneled" data-dfn-type="abstract-op" data-export data-lt="construct a well-known privacy policy URL" id="abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy
+policy URL</dfn> by running the following steps:</p>
    <ol>
     <li data-md>
      <p>If <var>origin</var> is not a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin" id="ref-for-potentially-trustworthy-origin">potentially trustworthy origin</a>, return <code>failure</code>.</p>
@@ -768,11 +773,26 @@ on only 692.
     </details>
    </div>
    <h2 class="heading settled" data-level="4" id="impl"><span class="secno">4. </span><span class="content">Implementation Considerations</span><a class="self-link" href="#impl"></a></h2>
+   <p>__This section is non-normative.__</p>
+   <h3 class="heading settled" data-level="4.1" id="scope"><span class="secno">4.1. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h3>
    <p>This document defines a mechanism through which one and only one privacy policy can be declared as
 applicable to the entirety of an origin. This is reasonable, as that’s the only security boundary
 that the web offers: data flowing to one page on an origin is accessible to other pages on the
 origin, as is storage, and potential server-side interrelations between pages are opaque to the
 user. Site operators are encouraged to make such a global policy available.</p>
+   <p>It’s important to note, however, that websites might host privacy policies for applications that
+run outside the context of the web platform. <code>https://amazing-mobile-app.example</code> might offer a PWA
+alongside native apps on multiple platforms with differing data collection and usage
+characteristics. In this case, clients should expect <code>/.well-known/privacy-policy</code> to represent the
+privacy policy that applies to the web origin.</p>
+   <p class="note" role="note"><span>Note:</span> It would be possible to extend this proposal with specific well-known links for privacy
+policies on a platform-by-platform basis (e.g. <code>/.well-known/privacy-policy/Windows</code>, <code>/.well-known/privacy-policy?platform=iOS</code>, or some other spelling). It’s not clear whether that
+addition is worthwhile, but it would be fairly straightforward to define by adding a <var>platform</var> parameter to the <a data-link-type="abstract-op" href="#abstract-opdef-construct-a-well-known-privacy-policy-url" id="ref-for-abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy policy URL</a> algorithm.</p>
+   <h3 class="heading settled" data-level="4.2" id="p3p"><span class="secno">4.2. </span><span class="content">Relation to P3P</span><a class="self-link" href="#p3p"></a></h3>
+   <p>The <a data-link-type="biblio" href="#biblio-p3p">[P3P]</a> specification defines a machine-readable representation of a site’s privacy practices,
+and it’s reasonable to wonder whether this proposal is in some way related. It is not: this
+proposal is substantially narrower, suggesting only that it should be trivial to discover the URL
+at which origin’s existing privacy policy prose resides.</p>
    <h2 class="heading settled" data-level="5" id="iana"><span class="secno">5. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana"></a></h2>
    <p>This document defines the <code>privacy-policy</code> well-known URI. This registration will be submitted to
 the IESG for review, approval, and registration with IANA using the template defined in <a data-link-type="biblio" href="#biblio-rfc8615">[RFC8615]</a> as follows:</p>
@@ -856,51 +876,51 @@ the IESG for review, approval, and registration with IANA using the template def
    <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-the-a-element">1. Introduction</a>
-    <li><a href="#ref-for-the-a-element①">3. The privacy Link Type</a> <a href="#ref-for-the-a-element②">(2)</a>
+    <li><a href="#ref-for-the-a-element①">3. The privacy-policy Link Type</a> <a href="#ref-for-the-a-element②">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-area-element">
    <a href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element">https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-the-area-element">1. Introduction</a>
-    <li><a href="#ref-for-the-area-element①">3. The privacy Link Type</a>
+    <li><a href="#ref-for-the-area-element①">3. The privacy-policy Link Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-body-ok">
    <a href="https://html.spec.whatwg.org/#body-ok">https://html.spec.whatwg.org/#body-ok</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-body-ok">3. The privacy Link Type</a>
+    <li><a href="#ref-for-body-ok">3. The privacy-policy Link Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-form-element">
    <a href="https://html.spec.whatwg.org/multipage/forms.html#the-form-element">https://html.spec.whatwg.org/multipage/forms.html#the-form-element</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-the-form-element">3. The privacy Link Type</a>
+    <li><a href="#ref-for-the-form-element">3. The privacy-policy Link Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-head-element">
    <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-head-element">https://html.spec.whatwg.org/multipage/semantics.html#the-head-element</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-the-head-element">3. The privacy Link Type</a>
+    <li><a href="#ref-for-the-head-element">3. The privacy-policy Link Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-hyperlink">
    <a href="https://html.spec.whatwg.org/multipage/links.html#hyperlink">https://html.spec.whatwg.org/multipage/links.html#hyperlink</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-hyperlink">3. The privacy Link Type</a> <a href="#ref-for-hyperlink①">(2)</a>
+    <li><a href="#ref-for-hyperlink">3. The privacy-policy Link Type</a> <a href="#ref-for-hyperlink①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-link-element">
    <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-the-link-element">1. Introduction</a>
-    <li><a href="#ref-for-the-link-element①">3. The privacy Link Type</a> <a href="#ref-for-the-link-element②">(2)</a> <a href="#ref-for-the-link-element③">(3)</a>
+    <li><a href="#ref-for-the-link-element①">3. The privacy-policy Link Type</a> <a href="#ref-for-the-link-element②">(2)</a> <a href="#ref-for-the-link-element③">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-link-type">
    <a href="https://html.spec.whatwg.org/#link-type">https://html.spec.whatwg.org/#link-type</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-link-type">3. The privacy Link Type</a>
+    <li><a href="#ref-for-link-type">3. The privacy-policy Link Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-origin">
@@ -1001,6 +1021,8 @@ the IESG for review, approval, and registration with IANA using the template def
   <dl>
    <dt id="biblio-change-password-url">[CHANGE-PASSWORD-URL]
    <dd>Ricky Mondello; Theresa O'Connor. <a href="https://w3c.github.io/webappsec-change-password-url/"><cite>A Well-Known URL for Changing Passwords</cite></a>. URL: <a href="https://w3c.github.io/webappsec-change-password-url/">https://w3c.github.io/webappsec-change-password-url/</a>
+   <dt id="biblio-p3p">[P3P]
+   <dd>Massimo Marchiori. <a href="https://www.w3.org/TR/P3P/"><cite>The Platform for Privacy Preferences 1.0 (P3P1.0) Specification</cite></a>. 30 August 2018. REC. URL: <a href="https://www.w3.org/TR/P3P/">https://www.w3.org/TR/P3P/</a>
    <dt id="biblio-rfc8615">[RFC8615]
    <dd>M. Nottingham. <a href="https://www.rfc-editor.org/rfc/rfc8615"><cite>Well-Known Uniform Resource Identifiers (URIs)</cite></a>. May 2019. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8615">https://www.rfc-editor.org/rfc/rfc8615</a>
   </dl>
@@ -1014,6 +1036,12 @@ the IESG for review, approval, and registration with IANA using the template def
    <b><a href="#well-known-privacy-policy-url">#well-known-privacy-policy-url</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-well-known-privacy-policy-url">2. The privacy-policy Well-Known URL</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="abstract-opdef-construct-a-well-known-privacy-policy-url">
+   <b><a href="#abstract-opdef-construct-a-well-known-privacy-policy-url">#abstract-opdef-construct-a-well-known-privacy-policy-url</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-abstract-opdef-construct-a-well-known-privacy-policy-url">4.1. Scope</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */

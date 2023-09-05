@@ -186,11 +186,37 @@ WHERE
 Implementation Considerations {#impl}
 =====================================
 
+__This section is non-normative.__
+
+Scope {#scope}
+-----------------------
+
 This document defines a mechanism through which one and only one privacy policy can be declared as
 applicable to the entirety of an origin. This is reasonable, as that's the only security boundary
 that the web offers: data flowing to one page on an origin is accessible to other pages on the
 origin, as is storage, and potential server-side interrelations between pages are opaque to the
 user. Site operators are encouraged to make such a global policy available.
+
+It's important to note, however, that websites might host privacy policies for applications that
+run outside the context of the web platform. `https://amazing-mobile-app.example` might offer a PWA
+alongside native apps on multiple platforms with differing data collection and usage
+characteristics. In this case, clients should expect `/.well-known/privacy-policy` to represent the
+privacy policy that applies to the web origin.
+
+Note: It would be possible to extend this proposal with specific well-known links for privacy
+policies on a platform-by-platform basis (e.g. `/.well-known/privacy-policy/Windows`,
+`/.well-known/privacy-policy?platform=iOS`, or some other spelling). It's not clear whether that
+addition is worthwhile, but it would be fairly straightforward to define by adding a
+<var ignore>platform</var> parameter to the [$construct a well-known privacy policy URL$] algorithm.
+
+
+Relation to P3P {#p3p}
+----------------------
+
+The [[P3P]] specification defines a machine-readable representation of a site's privacy practices,
+and it's reasonable to wonder whether this proposal is in some way related. It is not: this
+proposal is substantially narrower, suggesting only that it should be trivial to discover the URL
+at which origin's existing privacy policy prose resides.
 
 
 IANA Considerations {#iana}
