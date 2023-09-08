@@ -2,15 +2,13 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Privacy Policy Discovery</title>
+  <title>Policy Discovery</title>
   <meta content="w3c/UD" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-UD" rel="stylesheet">
-  <meta content="Bikeshed version 63e66730b, updated Tue Oct 25 12:35:05 2022 -0700" name="generator">
+  <meta content="Bikeshed version 6edc88947, updated Thu Aug 17 11:18:09 2023 -0700" name="generator">
   <link href="https://mikewest.github.io/privacy-policy-discovery/" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="6a56f1c06aea43d2a4f4d8933f1cf2ab319f3d88" name="document-revision">
-<style>/* style-autolinks */
-
+<style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
     font-size: inherit;
@@ -70,8 +68,17 @@ pre .property::before, pre .property::after {
 
 [data-link-type=biblio] {
     white-space: pre;
-}</style>
-<style>/* style-colors */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --selflink-text: black;
+        --selflink-bg: silver;
+        --selflink-hover-text: white;
+    }
+}
+</style>
+<style>/* Boilerplate: style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
 :root {
@@ -179,217 +186,7 @@ pre .property::before, pre .property::after {
     --outdated-shadow: red;
 
     --editedrec-bg: darkorange;
-}</style>
-<style>/* style-counters */
-
-body {
-    counter-reset: example figure issue;
 }
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}</style>
-<style>/* style-dfn-panel */
-
-:root {
-    --dfnpanel-bg: #ddd;
-    --dfnpanel-text: var(--text);
-}
-.dfn-panel {
-    position: absolute;
-    z-index: 35;
-    height: auto;
-    width: -webkit-fit-content;
-    width: fit-content;
-    max-width: 300px;
-    max-height: 500px;
-    overflow: auto;
-    padding: 0.5em 0.75em;
-    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-    background: var(--dfnpanel-bg);
-    color: var(--dfnpanel-text);
-    border: outset 0.2em;
-}
-.dfn-panel:not(.on) { display: none; }
-.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-.dfn-panel > b { display: block; }
-.dfn-panel a { color: var(--dfnpanel-text); }
-.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-.dfn-panel > b + b { margin-top: 0.25em; }
-.dfn-panel ul { padding: 0; }
-.dfn-panel li { list-style: inside; }
-.dfn-panel.activated {
-    display: inline-block;
-    position: fixed;
-    left: .5em;
-    bottom: 2em;
-    margin: 0 auto;
-    max-width: calc(100vw - 1.5em - .4em - .5em);
-    max-height: 30vh;
-}
-
-.dfn-paneled { cursor: pointer; }
-</style>
-<style>/* style-issues */
-
-a[href].issue-return {
-    float: right;
-    float: inline-end;
-    color: var(--issueheading-text);
-    font-weight: bold;
-    text-decoration: none;
-}
-</style>
-<style>/* style-md-lists */
-
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
-}
-[data-md] > :last-child {
-    margin-bottom: 0;
-}</style>
-<style>/* style-selflinks */
-
-:root {
-    --selflink-text: white;
-    --selflink-bg: gray;
-    --selflink-hover-text: black;
-}
-.heading, .issue, .note, .example, li, dt {
-    position: relative;
-}
-a.self-link {
-    position: absolute;
-    top: 0;
-    left: calc(-1 * (3.5rem - 26px));
-    width: calc(3.5rem - 26px);
-    height: 2em;
-    text-align: center;
-    border: none;
-    transition: opacity .2s;
-    opacity: .5;
-}
-a.self-link:hover {
-    opacity: 1;
-}
-.heading > a.self-link {
-    font-size: 83%;
-}
-.example > a.self-link,
-.note > a.self-link,
-.issue > a.self-link {
-    /* These blocks are overflow:auto, so positioning outside
-       doesn't work. */
-    left: auto;
-    right: 0;
-}
-li > a.self-link {
-    left: calc(-1 * (3.5rem - 26px) - 2em);
-}
-dfn > a.self-link {
-    top: auto;
-    left: auto;
-    opacity: 0;
-    width: 1.5em;
-    height: 1.5em;
-    background: var(--selflink-bg);
-    color: var(--selflink-text);
-    font-style: normal;
-    transition: opacity .2s, background-color .2s, color .2s;
-}
-dfn:hover > a.self-link {
-    opacity: 1;
-}
-dfn > a.self-link:hover {
-    color: var(--selflink-hover-text);
-}
-
-a.self-link::before            { content: "¶"; }
-.heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }
-</style>
-<style>/* style-syntax-highlighting */
-
-code.highlight { padding: .1em; border-radius: .3em; }
-pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-
-.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
-c-[a] { color: #990055 } /* Keyword.Declaration */
-c-[b] { color: #990055 } /* Keyword.Type */
-c-[c] { color: #708090 } /* Comment */
-c-[d] { color: #708090 } /* Comment.Multiline */
-c-[e] { color: #0077aa } /* Name.Attribute */
-c-[f] { color: #669900 } /* Name.Tag */
-c-[g] { color: #222222 } /* Name.Variable */
-c-[k] { color: #990055 } /* Keyword */
-c-[l] { color: #000000 } /* Literal */
-c-[m] { color: #000000 } /* Literal.Number */
-c-[n] { color: #0077aa } /* Name */
-c-[o] { color: #999999 } /* Operator */
-c-[p] { color: #999999 } /* Punctuation */
-c-[s] { color: #a67f59 } /* Literal.String */
-c-[t] { color: #a67f59 } /* Literal.String.Single */
-c-[u] { color: #a67f59 } /* Literal.String.Double */
-c-[cp] { color: #708090 } /* Comment.Preproc */
-c-[c1] { color: #708090 } /* Comment.Single */
-c-[cs] { color: #708090 } /* Comment.Special */
-c-[kc] { color: #990055 } /* Keyword.Constant */
-c-[kn] { color: #990055 } /* Keyword.Namespace */
-c-[kp] { color: #990055 } /* Keyword.Pseudo */
-c-[kr] { color: #990055 } /* Keyword.Reserved */
-c-[ld] { color: #000000 } /* Literal.Date */
-c-[nc] { color: #0077aa } /* Name.Class */
-c-[no] { color: #0077aa } /* Name.Constant */
-c-[nd] { color: #0077aa } /* Name.Decorator */
-c-[ni] { color: #0077aa } /* Name.Entity */
-c-[ne] { color: #0077aa } /* Name.Exception */
-c-[nf] { color: #0077aa } /* Name.Function */
-c-[nl] { color: #0077aa } /* Name.Label */
-c-[nn] { color: #0077aa } /* Name.Namespace */
-c-[py] { color: #0077aa } /* Name.Property */
-c-[ow] { color: #999999 } /* Operator.Word */
-c-[mb] { color: #000000 } /* Literal.Number.Bin */
-c-[mf] { color: #000000 } /* Literal.Number.Float */
-c-[mh] { color: #000000 } /* Literal.Number.Hex */
-c-[mi] { color: #000000 } /* Literal.Number.Integer */
-c-[mo] { color: #000000 } /* Literal.Number.Oct */
-c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
-c-[sc] { color: #a67f59 } /* Literal.String.Char */
-c-[sd] { color: #a67f59 } /* Literal.String.Doc */
-c-[se] { color: #a67f59 } /* Literal.String.Escape */
-c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
-c-[si] { color: #a67f59 } /* Literal.String.Interpol */
-c-[sx] { color: #a67f59 } /* Literal.String.Other */
-c-[sr] { color: #a67f59 } /* Literal.String.Regex */
-c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
-c-[vc] { color: #0077aa } /* Name.Variable.Class */
-c-[vg] { color: #0077aa } /* Name.Variable.Global */
-c-[vi] { color: #0077aa } /* Name.Variable.Instance */
-c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
-</style>
-<style>/* style-darkmode */
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -502,20 +299,281 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        which is quite common in practice... */
     img { background: white; }
 }
-@media (prefers-color-scheme: dark) {
-    :root {
-        --selflink-text: black;
-        --selflink-bg: silver;
-        --selflink-hover-text: white;
-    }
+</style>
+<style>/* Boilerplate: style-counters */
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
 }
 
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
 @media (prefers-color-scheme: dark) {
     :root {
         --dfnpanel-bg: #222;
         --dfnpanel-text: var(--text);
     }
 }
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    white-space: pre;
+    display: inline-block;
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled[role="button"] { cursor: pointer; }
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dfnpanel-bg: #222;
+        --dfnpanel-text: var(--text);
+    }
+}
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    white-space: pre;
+    display: inline-block;
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled[role="button"] { cursor: pointer; }
+</style>
+<style>/* Boilerplate: style-issues */
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+<style>/* Boilerplate: style-md-lists */
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}
+</style>
+<style>/* Boilerplate: style-selflinks */
+
+:root {
+    --selflink-text: white;
+    --selflink-bg: gray;
+    --selflink-hover-text: black;
+}
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--selflink-bg);
+    color: var(--selflink-text);
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: var(--selflink-hover-text);
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }
+</style>
+<style>/* Boilerplate: style-syntax-highlighting */
+
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+
+.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
+c-[a] { color: #990055 } /* Keyword.Declaration */
+c-[b] { color: #990055 } /* Keyword.Type */
+c-[c] { color: #708090 } /* Comment */
+c-[d] { color: #708090 } /* Comment.Multiline */
+c-[e] { color: #0077aa } /* Name.Attribute */
+c-[f] { color: #669900 } /* Name.Tag */
+c-[g] { color: #222222 } /* Name.Variable */
+c-[k] { color: #990055 } /* Keyword */
+c-[l] { color: #000000 } /* Literal */
+c-[m] { color: #000000 } /* Literal.Number */
+c-[n] { color: #0077aa } /* Name */
+c-[o] { color: #999999 } /* Operator */
+c-[p] { color: #999999 } /* Punctuation */
+c-[s] { color: #a67f59 } /* Literal.String */
+c-[t] { color: #a67f59 } /* Literal.String.Single */
+c-[u] { color: #a67f59 } /* Literal.String.Double */
+c-[cp] { color: #708090 } /* Comment.Preproc */
+c-[c1] { color: #708090 } /* Comment.Single */
+c-[cs] { color: #708090 } /* Comment.Special */
+c-[kc] { color: #990055 } /* Keyword.Constant */
+c-[kn] { color: #990055 } /* Keyword.Namespace */
+c-[kp] { color: #990055 } /* Keyword.Pseudo */
+c-[kr] { color: #990055 } /* Keyword.Reserved */
+c-[ld] { color: #000000 } /* Literal.Date */
+c-[nc] { color: #0077aa } /* Name.Class */
+c-[no] { color: #0077aa } /* Name.Constant */
+c-[nd] { color: #0077aa } /* Name.Decorator */
+c-[ni] { color: #0077aa } /* Name.Entity */
+c-[ne] { color: #0077aa } /* Name.Exception */
+c-[nf] { color: #0077aa } /* Name.Function */
+c-[nl] { color: #0077aa } /* Name.Label */
+c-[nn] { color: #0077aa } /* Name.Namespace */
+c-[py] { color: #0077aa } /* Name.Property */
+c-[ow] { color: #999999 } /* Operator.Word */
+c-[mb] { color: #000000 } /* Literal.Number.Bin */
+c-[mf] { color: #000000 } /* Literal.Number.Float */
+c-[mh] { color: #000000 } /* Literal.Number.Hex */
+c-[mi] { color: #000000 } /* Literal.Number.Integer */
+c-[mo] { color: #000000 } /* Literal.Number.Oct */
+c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
+c-[sc] { color: #a67f59 } /* Literal.String.Char */
+c-[sd] { color: #a67f59 } /* Literal.String.Doc */
+c-[se] { color: #a67f59 } /* Literal.String.Escape */
+c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
+c-[si] { color: #a67f59 } /* Literal.String.Interpol */
+c-[sx] { color: #a67f59 } /* Literal.String.Other */
+c-[sr] { color: #a67f59 } /* Literal.String.Regex */
+c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
+c-[vc] { color: #0077aa } /* Name.Variable.Class */
+c-[vg] { color: #0077aa } /* Name.Variable.Global */
+c-[vi] { color: #0077aa } /* Name.Variable.Instance */
+c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
+
+
 @media (prefers-color-scheme: dark) {
     .highlight:not(.idl) { background: rgba(255, 255, 255, .05); }
 
@@ -582,16 +640,14 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
-   <h1 class="p-name no-ref" id="title">Privacy Policy Discovery</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#UD">Unofficial Proposal Draft</a>, <time class="dt-updated" datetime="2023-09-05">5 September 2023</time></p>
+   <h1 class="p-name no-ref" id="title">Policy Discovery</h1>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#UD">Unofficial Proposal Draft</a>, <time class="dt-updated" datetime="2023-09-07">7 September 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
      <dl>
       <dt>This version:
       <dd><a class="u-url" href="https://mikewest.github.io/privacy-policy-discovery/">https://mikewest.github.io/privacy-policy-discovery/</a>
-      <dt>Issue Tracking:
-      <dd><a href="https://github.com/mikewest/privacy-policy-discovery/issues/">GitHub</a>
       <dt class="editor">Editor:
       <dd class="editor p-author h-card vcard" data-editor-id="56384"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
      </dl>
@@ -603,10 +659,10 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This specification defines a well-known URL which allows an origin to make its privacy policy
+   <p>This specification defines well-known URLs which allow an origin to make its privacy policy and
 
-  easily discoverable: <code>/.well-known/privacy-policy</code>. It also defines a link type which
-  can likewise improve discoverability: <code>rel="privacy-policy"</code>.</p>
+  terms of service easily discoverable: <code>/.well-known/privacy-policy</code>, and <code>/.well-known/terms-of-service</code>. It also defines link types which can likewise improve
+  discoverability: <code>rel="privacy-policy"</code> and <code>rel="terms-of-service"</code>.</p>
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
@@ -617,8 +673,20 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
     <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
-    <li><a href="#well-known"><span class="secno">2</span> <span class="content">The <code>privacy-policy</code> Well-Known URL</span></a>
-    <li><a href="#link-type"><span class="secno">3</span> <span class="content">The <code>privacy-policy</code> Link Type</span></a>
+    <li>
+     <a href="#well-known"><span class="secno">2</span> <span class="content">Well-Known URLs</span></a>
+     <ol class="toc">
+      <li><a href="#well-known-privacy-policy"><span class="secno">2.1</span> <span class="content">The <code>privacy-policy</code> Well-Known URL</span></a>
+      <li><a href="#well-known-terms-of-service"><span class="secno">2.2</span> <span class="content">The <code>terms-of-service</code> Well-Known URL</span></a>
+      <li><a href="#well-known-server"><span class="secno">2.3</span> <span class="content">Server Considerations</span></a>
+      <li><a href="#well-known-client"><span class="secno">2.4</span> <span class="content">Client Considerations</span></a>
+     </ol>
+    <li>
+     <a href="#link-type"><span class="secno">3</span> <span class="content">Link Types</span></a>
+     <ol class="toc">
+      <li><a href="#link-type-privacy-policy"><span class="secno">3.1</span> <span class="content">The <code>privacy-policy</code> Link Type</span></a>
+      <li><a href="#link-type-terms-of-service"><span class="secno">3.2</span> <span class="content">The <code>terms-of-service</code> Link Type</span></a>
+     </ol>
     <li>
      <a href="#impl"><span class="secno">4</span> <span class="content">Implementation Considerations</span></a>
      <ol class="toc">
@@ -649,34 +717,38 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p><em>This section is non-normative.</em></p>
-   <p>A website’s privacy policy is an important document, describing the ways in which data that flows
-through the site can be used, managed, shared, combined with other data sources, and so on. The
-precise definition and impact of a privacy policy will vary based on a number of factors, but it
-seems clear that whatever the exact contours of the legal framework in which it exists, it
+   <p>Websites' privacy policies and terms of service are important documents, describing the ways in
+which data that flows through the site can be used, managed, shared, combined with other data
+sources; and the agreements under which the website offers its services. The precise definition
+and impact of these policy documents will vary based on a number of factors, but it
+seems clear that whatever the exact contours of the legal framework in which it exists, they
 represents a set of promises that the site’s users ought to be able to rely upon.  It’s therefore
-an important document for users to be able to easily discover, read through, and rely upon when
-interacting with a site.</p>
-   <p>Recognizing this, many sites will place a prominent link to their privacy policies in a place where
+important for users to be able to easily discover, read through, and rely upon them interacting
+with a site.</p>
+   <p>Recognizing this, many sites will place a prominent link to their policies in a place where
 they believe users might look for it: the site’s footer, for example. This document suggests two
-improvements to discoverability which may help user agents and other tools make privacy policies
-more accessible to users (perhaps by exposing links to a site’s privacy policy in prominent places
+improvements to discoverability which may help user agents and other tools make policy documents
+more accessible to users (perhaps by exposing links to a site’s policies in prominent places
 in the user agent’s UI):</p>
    <ol>
     <li data-md>
-     <p><a href="#well-known">§ 2 The privacy-policy Well-Known URL</a> defines the <code>/.well-known/privacy-policy</code> well-known URI <a data-link-type="biblio" href="#biblio-rfc8615">[RFC8615]</a>.</p>
+     <p><a href="#well-known">§ 2 Well-Known URLs</a> defines the <code>/.well-known/privacy-policy</code> and <code>/.well-known/terms-of-service</code> well-known URIs <a data-link-type="biblio" href="#biblio-rfc8615" title="Well-Known Uniform Resource Identifiers (URIs)">[RFC8615]</a>.</p>
     <li data-md>
-     <p><a href="#link-type">§ 3 The privacy-policy Link Type</a> defines the <code>privacy-policy</code> link type, which can be used to annotate <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element">a</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> elements that reference the privacy policy that applies to a given document
-(<code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element" id="ref-for-the-area-element">area</a></code> too, I suppose).</p>
+     <p><a href="#link-type">§ 3 Link Types</a> defines the <code>privacy-policy</code> and <code>terms-of-service</code> link types, which can be
+used to annotate <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element">a</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> elements that reference the policies that apply to a
+given document (and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element" id="ref-for-the-area-element">area</a></code> too, I suppose... why not?).</p>
    </ol>
-   <h2 class="heading settled" data-level="2" id="well-known"><span class="secno">2. </span><span class="content">The <code>privacy-policy</code> Well-Known URL</span><a class="self-link" href="#well-known"></a></h2>
+   <h2 class="heading settled" data-level="2" id="well-known"><span class="secno">2. </span><span class="content">Well-Known URLs</span><a class="self-link" href="#well-known"></a></h2>
+   <h3 class="heading settled" data-level="2.1" id="well-known-privacy-policy"><span class="secno">2.1. </span><span class="content">The <code>privacy-policy</code> Well-Known URL</span><a class="self-link" href="#well-known-privacy-policy"></a></h3>
    <p>An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="privacy-policy-url">privacy policy URL</dfn> is a URL that directly identifies the origin’s privacy
-policy resource. An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="well-known-privacy-policy-url">well-known privacy policy URL</dfn> is a URL whose <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-path" id="ref-for-concept-url-path">path</a> component is <code>/.well-known/privacy-policy</code>. It returns a response that redirects to the <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url">privacy policy URL</a>, thereby facilitating its automated discovery.</p>
+policy resource. An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="well-known-privacy-policy-url">well-known privacy policy URL</dfn> is a URL whose <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-path" id="ref-for-concept-url-path">path</a> component is <code>/.well-known/privacy-policy</code>. Responses to requests for this resource should redirect
+to the <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url">privacy policy URL</a>, thereby facilitating its automated discovery.</p>
    <p>Given an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin" id="ref-for-concept-origin">origin</a> (<var>origin</var>), a client can <dfn class="dfn-paneled" data-dfn-type="abstract-op" data-export data-lt="construct a well-known privacy policy URL" id="abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy
 policy URL</dfn> by running the following steps:</p>
    <ol>
     <li data-md>
      <p>If <var>origin</var> is not a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin" id="ref-for-potentially-trustworthy-origin">potentially trustworthy origin</a>, return <code>failure</code>.</p>
-     <p class="note" role="note"><span>Note:</span> Origins which are not delivered securely can make no meaningful promises about the privacy
+     <p class="note" role="note"><span class="marker">Note:</span> Origins which are not delivered securely can make no meaningful promises about the privacy
 of data flowing to and from the client, as the communication channel is plaintext and available
 to (and manipulatable by) anyone on the network between the client and the server.</p>
     <li data-md>
@@ -696,17 +768,44 @@ to (and manipulatable by) anyone on the network between the client and the serve
     <li data-md>
      <p>Return <var>url</var>.</p>
    </ol>
-   <p>Servers complying with this document’s recommendations SHOULD respond to requests for an origin’s <a data-link-type="dfn" href="#well-known-privacy-policy-url" id="ref-for-well-known-privacy-policy-url">well-known privacy policy URL</a> with a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response">response</a> whose <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-status" id="ref-for-concept-response-status">status</a> is one of
-« 302, 303, 307 », and which contains a <code>Location</code> header whose value is the origin’s <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url①">privacy policy URL</a>. Servers MAY also return a <code>Location</code> header whose value is a URL that,
-in turn, redirects to the origin’s privacy policy URL.</p>
-   <p class="note" role="note"><span>Note:</span> The status codes here support only temporary redirects. As discussed in <a href="https://github.com/w3c/webappsec-change-password-url/issues/13">w3c/webappsec-change-password-url#13</a>,
+   <h3 class="heading settled" data-level="2.2" id="well-known-terms-of-service"><span class="secno">2.2. </span><span class="content">The <code>terms-of-service</code> Well-Known URL</span><a class="self-link" href="#well-known-terms-of-service"></a></h3>
+   <p>An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="terms-of-service-url">terms of service URL</dfn> is a URL that directly identifies the origin’s terms of
+service resource. An origin’s <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="well-known-terms-of-service-url">well-known terms of service URL</dfn> is a URL whose <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-path" id="ref-for-concept-url-path②">path</a> component is <code>/.well-known/terms-of-service</code>. Responses to requests for this resource should redirect
+to the <a data-link-type="dfn" href="#terms-of-service-url" id="ref-for-terms-of-service-url">terms of service URL</a>, thereby facilitating its automated discovery.</p>
+   <p>Given an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin" id="ref-for-concept-origin①">origin</a> (<var>origin</var>), a client can <dfn class="dfn-paneled" data-dfn-type="abstract-op" data-export data-lt="construct a well-known terms of service URL" id="abstract-opdef-construct-a-well-known-terms-of-service-url">construct a well-known terms of
+service URL</dfn> by running the following steps:</p>
+   <ol>
+    <li data-md>
+     <p>If <var>origin</var> is not a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin" id="ref-for-potentially-trustworthy-origin①">potentially trustworthy origin</a>, return <code>failure</code>.</p>
+     <p class="note" role="note"><span class="marker">Note:</span> Origins which are not delivered securely can make no meaningful promises about the privacy
+of data flowing to and from the client, as the communication channel is plaintext and available
+to (and manipulatable by) anyone on the network between the client and the server.</p>
+    <li data-md>
+     <p class="assertion">Assert: <var>origin</var> is a <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin-tuple" id="ref-for-concept-origin-tuple①">tuple origin</a>.</p>
+    <li data-md>
+     <p>Let <var>url</var> be a new URL with values set as follows:</p>
+     <ul>
+      <li data-md>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-scheme" id="ref-for-concept-url-scheme①">scheme</a>: <var>origin</var>’s scheme.</p>
+      <li data-md>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-host" id="ref-for-concept-url-host①">host</a>: <var>origin</var>’s host.</p>
+      <li data-md>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-port" id="ref-for-concept-url-port①">port</a>: <var>origin</var>’s port.</p>
+      <li data-md>
+       <p><a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-path" id="ref-for-concept-url-path③">path</a>: « ".well-known", "terms-of-service" »</p>
+     </ul>
+    <li data-md>
+     <p>Return <var>url</var>.</p>
+   </ol>
+   <h3 class="heading settled" data-level="2.3" id="well-known-server"><span class="secno">2.3. </span><span class="content">Server Considerations</span><a class="self-link" href="#well-known-server"></a></h3>
+   <p>Servers complying with this document’s recommendations SHOULD respond to requests for an origin’s <a data-link-type="dfn" href="#well-known-privacy-policy-url" id="ref-for-well-known-privacy-policy-url">well-known privacy policy URL</a> and <a data-link-type="dfn" href="#well-known-terms-of-service-url" id="ref-for-well-known-terms-of-service-url">well-known terms of service URL</a> with a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response">response</a> whose <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-status" id="ref-for-concept-response-status">status</a> is one of « 302, 303, 307 », and which contains a <code>Location</code> header
+whose value is the origin’s <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url①">privacy policy URL</a> or <a data-link-type="dfn" href="#terms-of-service-url" id="ref-for-terms-of-service-url①">terms of service URL</a>, respectively.</p>
+   <p>Servers MAY also return a <code>Location</code> header whose value is a URL that, in turn, redirects to the
+requested resource.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> The status codes here support only temporary redirects. As discussed in <a href="https://github.com/w3c/webappsec-change-password-url/issues/13">w3c/webappsec-change-password-url#13</a>,
 this intentionally excludes permanent redirect codes in order to ensure that intermediate caches and
 client applications continue to check the well-known URL to catch changes in a site’s structure.</p>
-   <p>Further, an origin’s <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url②">privacy policy URL</a> does not need to live on that origin. Clients should
-support a setup allowing <code>https://example.com</code>'s privacy policy to live on <code>https://policies.example.com/privacy</code> or <code>https://holding-company.example/privacy</code>,
-for example.</p>
-   <p>Given the potentially-cross-origin nature of these requests, clients making automated requests for
-well-known privacy policy URLs are encouraged to do so with the request’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode" id="ref-for-concept-request-credentials-mode">credentials mode</a> set to <code>omit</code> and its <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-referrer" id="ref-for-concept-request-referrer">referrer</a> set to <code>no-referrer</code>.</p>
+   <p>An origin’s <a data-link-type="dfn" href="#privacy-policy-url" id="ref-for-privacy-policy-url②">privacy policy URL</a> does not need to live on that origin. Clients should support <code>https://example.com</code>’s policy documents being hosted by <code>https://policies.example.com/</code> or <code>https://holding-company.example/</code>, for example.</p>
    <div class="example" id="example-8fcb2d39">
     <a class="self-link" href="#example-8fcb2d39"></a> Assuming that <code>https://example.com/</code> has a privacy policy which lives at <code>https://example.com/privacy</code>, then a server should respond to a client’s request for <code>https://example.com/.well-known/privacy-policy</code> with a response like the following: 
 <pre class="language-http highlight"><c- kr>HTTP</c-><c- o>/</c-><c- m>1.1</c-> <c- m>307</c-> <c- ne>Temporary Redirect</c->
@@ -714,9 +813,14 @@ well-known privacy policy URLs are encouraged to do so with the request’s <a d
 Location: https://example.com/privacy
 </pre>
    </div>
-   <p>Clients making automated requests for well-known privacy policy URLs are encouraged to do so with
-the request’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode" id="ref-for-concept-request-credentials-mode①">credentials mode</a> set to <code>omit</code>.</p>
-   <h2 class="heading settled" data-level="3" id="link-type"><span class="secno">3. </span><span class="content">The <code>privacy-policy</code> Link Type</span><a class="self-link" href="#link-type"></a></h2>
+   <h3 class="heading settled" data-level="2.4" id="well-known-client"><span class="secno">2.4. </span><span class="content">Client Considerations</span><a class="self-link" href="#well-known-client"></a></h3>
+   <p>Given the potentially-cross-origin nature of these requests, clients making automated requests for
+these well-known URLs are encouraged to do so with the request’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode" id="ref-for-concept-request-credentials-mode">credentials mode</a> set
+to <code>omit</code> and its <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-referrer" id="ref-for-concept-request-referrer">referrer</a> set to <code>no-referrer</code>.</p>
+   <h2 class="heading settled" data-level="3" id="link-type"><span class="secno">3. </span><span class="content">Link Types</span><a class="self-link" href="#link-type"></a></h2>
+   <p class="note" role="note"><span class="marker">Note:</span> The following two sections define the <code>privacy-policy</code> and <code>terms-of-service</code> link types. If
+standardized, these should eventually migrate to HTML’s <a href="https://html.spec.whatwg.org/multipage/links.html#linkTypes">list of link types</a>.</p>
+   <h3 class="heading settled" data-level="3.1" id="link-type-privacy-policy"><span class="secno">3.1. </span><span class="content">The <code>privacy-policy</code> Link Type</span><a class="self-link" href="#link-type-privacy-policy"></a></h3>
    <p>Sites are encouraged to place links to their privacy policy in conspicuous places where users might
 look for them. To improve discoverability, this document defines the <code>privacy-policy</code> <a data-link-type="dfn" href="https://html.spec.whatwg.org/#link-type" id="ref-for-link-type">link type</a> as an annotation for <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element①">a</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element①">link</a></code> elements, enhancing their semantic meaning in a way user
 agents can understand and make available to users.</p>
@@ -743,7 +847,8 @@ agents can understand and make available to users.</p>
     <dd data-md>
      <p>Not allowed</p>
     <dt data-md><a data-link-type="dfn" href="https://html.spec.whatwg.org/#body-ok" id="ref-for-body-ok">body-ok</a>
-    <dt data-md>Yes
+    <dd data-md>
+     <p>Yes</p>
     <dt data-md>Has <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element③">link</a></code> processing
     <dd data-md>
      <p>No</p>
@@ -754,7 +859,7 @@ that apply to the current context. This may be a standalone privacy policy, or a
 section of some more general document.</p>
    </dl>
    <div class="note" role="note">
-     Note: The <a href="https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions">microformats wiki existing-rel-values page</a> contains a reference to a <code>privacy</code> link type. This document suggests "<code>privacy-policy</code>" instead, as that
+     <span class="marker">Note:</span> The <a href="https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions">microformats wiki existing-rel-values page</a> contains a reference to a <code>privacy</code> link type. This document suggests "<code>privacy-policy</code>" instead, as that
 seems to be more commonly used on today’s internet: HTTP Archive data from August, 2023 suggests
 that <code>rel="privacy-policy"</code> was used on 285,421 distinct documents, while <code>rel="privacy"</code> was used
 on only 692. 
@@ -766,36 +871,78 @@ on only 692.
   <c- n>COUNTIF</c-><c- p>(</c-><c- n>REGEXP_CONTAINS</c-><c- p>(</c-><c- k>LOWER</c-><c- p>(</c-><c- n>body</c-><c- p>),</c-> <c- n>r</c-><c- ss>"rel=(privacy[ >]|\'privacy\'|\"</c-><c- n>privacy</c->\<c- ss>")"</c-><c- p>))</c-> <c- k>as</c-> <c- n>privacy</c-><c- p>,</c->
   <c- n>COUNTIF</c-><c- p>(</c-><c- n>REGEXP_CONTAINS</c-><c- p>(</c-><c- k>LOWER</c-><c- p>(</c-><c- n>body</c-><c- p>),</c-> <c- n>r</c-><c- ss>"rel=(privacy-policy|\'privacy-policy\'|\"</c-><c- n>privacy</c-><c- o>-</c-><c- n>policy</c->\<c- ss>")"</c-><c- p>))</c-> <c- k>as</c-> <c- n>privacy_policy</c->
 <c- k>FROM</c->
-  <c- o>`</c-><c- n>httparchive</c-><c- p>.</c-><c- n>response_bodies</c-><c- p>.</c-><c- mi>2023</c-><c- n>_08_01_desktop</c-><c- o>`</c->
+  \<c- o>`</c-><c- n>httparchive</c-><c- p>.</c-><c- n>response_bodies</c-><c- p>.</c-><c- mi>2023</c-><c- n>_08_01_desktop</c->\<c- o>`</c->
 <c- k>WHERE</c->
   <c- n>page</c-> <c- o>=</c-> <c- n>url</c->
 </pre>
     </details>
    </div>
+   <h3 class="heading settled" data-level="3.2" id="link-type-terms-of-service"><span class="secno">3.2. </span><span class="content">The <code>terms-of-service</code> Link Type</span><a class="self-link" href="#link-type-terms-of-service"></a></h3>
+   <p>Sites are encouraged to place links to their terms of service in conspicuous places where users
+might look for them. To improve discoverability, this document defines the <code>terms-of-service</code> <a data-link-type="dfn" href="https://html.spec.whatwg.org/#link-type" id="ref-for-link-type①">link type</a> as an annotation for <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element③">a</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element④">link</a></code> elements, enhancing their semantic meaning in
+a way user agents can understand and make available to users.</p>
+   <div class="example" id="example-ffa46e3b">
+    <a class="self-link" href="#example-ffa46e3b"></a> Assuming that <code>https://example.com/</code> has a terms of service which lives at <code>https://example.com/tos</code>, it might include the following link in its footer: 
+<pre class="language-html highlight"><c- p>&lt;</c-><c- f>a</c-> <c- e>rel</c-><c- o>=</c-><c- s>"terms-of-service"</c-> <c- e>href</c-><c- o>=</c-><c- s>"https://example.com/tos"</c-><c- p>></c->Terms of Service<c- p>&lt;/</c-><c- f>a</c-><c- p>></c->
+</pre>
+    <p>It might also include the following in its <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-head-element" id="ref-for-the-head-element①">head</a></code>:</p>
+<pre class="language-html highlight"><c- p>&lt;</c-><c- f>link</c-> <c- e>rel</c-><c- o>=</c-><c- s>"terms-of-service"</c-> <c- e>href</c-><c- o>=</c-><c- s>"https://example.com/tos"</c-><c- p>></c->
+</pre>
+   </div>
+   <p>This extension to HTML’s set of link types has the following properties:</p>
+   <dl>
+    <dt data-md>Link Type
+    <dd data-md>
+     <p><code>terms-of-service</code></p>
+    <dt data-md>Effect on <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element⑤">link</a></code>
+    <dd data-md>
+     <p><a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/links.html#hyperlink" id="ref-for-hyperlink②">Hyperlink</a></p>
+    <dt data-md>Effect on <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" id="ref-for-the-a-element④">a</a></code>, <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element" id="ref-for-the-area-element②">area</a></code>
+    <dd data-md>
+     <p><a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/links.html#hyperlink" id="ref-for-hyperlink③">Hyperlink</a></p>
+    <dt data-md>Effect on <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/forms.html#the-form-element" id="ref-for-the-form-element①">form</a></code>
+    <dd data-md>
+     <p>Not allowed</p>
+    <dt data-md><a data-link-type="dfn" href="https://html.spec.whatwg.org/#body-ok" id="ref-for-body-ok①">body-ok</a>
+    <dd data-md>
+     <p>Yes</p>
+    <dt data-md>Has <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element⑥">link</a></code> processing
+    <dd data-md>
+     <p>No</p>
+    <dt data-md>Brief Description
+    <dd data-md>
+     <p>Refers to a document which contains information about the agreements between a service provider
+and users who wish to use the service provided.</p>
+   </dl>
+   <p class="note" role="note"><span class="marker">Note:</span> HTTP Archive didn’t give much guidance with regard to naming. The most popular <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-rel" id="ref-for-attr-hyperlink-rel">rel</a></code> attribute value that contained the word "terms" was <code>rel="terms of service"</code>, which unfortunately
+isn’t an appropriate link type. This document is running with <code>terms-of-service</code>, though other
+names could certainly be reasonable (<code>terms-and-conditions</code>, <code>tos</code>, etc).</p>
    <h2 class="heading settled" data-level="4" id="impl"><span class="secno">4. </span><span class="content">Implementation Considerations</span><a class="self-link" href="#impl"></a></h2>
-   <p>__This section is non-normative.__</p>
+   <p><em>This section is non-normative.</em></p>
    <h3 class="heading settled" data-level="4.1" id="scope"><span class="secno">4.1. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h3>
-   <p>This document defines a mechanism through which one and only one privacy policy can be declared as
-applicable to the entirety of an origin. This is reasonable, as that’s the only security boundary
-that the web offers: data flowing to one page on an origin is accessible to other pages on the
-origin, as is storage, and potential server-side interrelations between pages are opaque to the
-user. Site operators are encouraged to make such a global policy available.</p>
-   <p>It’s important to note, however, that websites might host privacy policies for applications that
+   <p>The well-known URLs defined in this document provide a mechanism through which one and only one
+document can be declared as binding for the entirety of an origin. This is reasonable, as that’s
+the only security boundary that the web offers: data flowing to one page on an origin is accessible
+to other pages on the origin, as is storage, and potential server-side interrelations between pages
+are opaque to the user. Site operators are encouraged to make such global policy documents
+available.</p>
+   <p>It’s important to note, however, that websites might host policies for applications that
 run outside the context of the web platform. <code>https://amazing-mobile-app.example</code> might offer a
 website alongside native apps on multiple platforms with differing data collection and usage
-characteristics. In this case, clients should expect <code>/.well-known/privacy-policy</code> to represent the
-privacy policy that applies to the web origin.</p>
-   <p class="note" role="note"><span>Note:</span> It would be possible to extend this proposal with specific well-known links for privacy
+characteristics. In this case, clients should expect the well-known URLs to represent only the
+policies that applies to the web origin.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> It would be possible to extend this proposal with specific well-known links for
 policies on a platform-by-platform basis (e.g. <code>/.well-known/privacy-policy/Windows</code>, <code>/.well-known/privacy-policy?platform=iOS</code>, or some other spelling). It’s not clear whether that
-addition is worthwhile, but it would be fairly straightforward to define by adding a <var>platform</var> parameter to the <a data-link-type="abstract-op" href="#abstract-opdef-construct-a-well-known-privacy-policy-url" id="ref-for-abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy policy URL</a> algorithm.</p>
+addition is worthwhile, but it would be fairly straightforward to define by adding a <var>platform</var> parameter to the <a data-link-type="abstract-op" href="#abstract-opdef-construct-a-well-known-privacy-policy-url" id="ref-for-abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy policy URL</a> and <a data-link-type="abstract-op" href="#abstract-opdef-construct-a-well-known-terms-of-service-url" id="ref-for-abstract-opdef-construct-a-well-known-terms-of-service-url">construct a well-known terms of service URL</a> algorithm.</p>
    <h3 class="heading settled" data-level="4.2" id="p3p"><span class="secno">4.2. </span><span class="content">Relation to P3P</span><a class="self-link" href="#p3p"></a></h3>
-   <p>The <a data-link-type="biblio" href="#biblio-p3p">[P3P]</a> specification defines a machine-readable representation of a site’s privacy practices,
+   <p>The <a data-link-type="biblio" href="#biblio-p3p" title="The Platform for Privacy Preferences 1.0 (P3P1.0) Specification">[P3P]</a> specification defines a machine-readable representation of a site’s privacy practices,
 and it’s reasonable to wonder whether this proposal is in some way related. It is not: this
 proposal is substantially narrower, suggesting only that it should be trivial to discover the URL
 at which origin’s existing privacy policy prose resides.</p>
    <h2 class="heading settled" data-level="5" id="iana"><span class="secno">5. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana"></a></h2>
-   <p>This document defines the <code>privacy-policy</code> well-known URI. This registration will be submitted to
-the IESG for review, approval, and registration with IANA using the template defined in <a data-link-type="biblio" href="#biblio-rfc8615">[RFC8615]</a> as follows:</p>
+   <p>This document defines the <code>privacy-policy</code> and <code>terms-of-service</code> well-known URIs. These
+will be submitted to the IESG for review, approval, and registration with IANA using the template
+defined in <a data-link-type="biblio" href="#biblio-rfc8615" title="Well-Known Uniform Resource Identifiers (URIs)">[RFC8615]</a> as follows:</p>
    <dl>
     <dt data-md>URI Suffix
     <dd data-md>
@@ -805,13 +952,28 @@ the IESG for review, approval, and registration with IANA using the template def
      <p>W3C, possibly?</p>
     <dt data-md>Specification Document
     <dd data-md>
-     <p>The <a href="#well-known">§ 2 The privacy-policy Well-Known URL</a> section of this document.</p>
+     <p>The <a href="#well-known-privacy-policy">§ 2.1 The privacy-policy Well-Known URL</a> section of this document.</p>
+    <dt data-md>Related Information:
+    <dd data-md>
+     <p>None.</p>
+   </dl>
+   <p>And:</p>
+   <dl>
+    <dt data-md>URI Suffix
+    <dd data-md>
+     <p>terms-of-service</p>
+    <dt data-md>Change Controller
+    <dd data-md>
+     <p>W3C, possibly?</p>
+    <dt data-md>Specification Document
+    <dd data-md>
+     <p>The <a href="#well-known-terms-of-service">§ 2.2 The terms-of-service Well-Known URL</a> section of this document.</p>
     <dt data-md>Related Information:
     <dd data-md>
      <p>None.</p>
    </dl>
    <h2 class="heading settled" data-level="6" id="acks"><span class="secno">6. </span><span class="content">Acknowledgements</span><a class="self-link" href="#acks"></a></h2>
-   <p>This document borrowed structure and content liberally from Ricky Mondello and Theresa O’Connor’s <a data-link-type="biblio" href="#biblio-change-password-url">[change-password-url]</a>.</p>
+   <p>This document borrowed structure and content liberally from Ricky Mondello and Theresa O’Connor’s <a data-link-type="biblio" href="#biblio-change-password-url" title="A Well-Known URL for Changing Passwords">[change-password-url]</a>.</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="w3c-conformance"><span class="content">Conformance</span><a class="self-link" href="#w3c-conformance"></a></h2>
@@ -825,7 +987,7 @@ the IESG for review, approval, and registration with IANA using the template def
     However, for readability,
     these words do not appear in all uppercase letters in this specification. </p>
    <p>All of the text of this specification is normative
-    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a> </p>
    <p>Examples in this specification are introduced with the words “for example”
     or are set apart from the normative text
     with <code>class="example"</code>,
@@ -844,163 +1006,50 @@ the IESG for review, approval, and registration with IANA using the template def
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy policy URL</a><span>, in § 2</span>
-   <li><a href="#privacy-policy-url">privacy policy URL</a><span>, in § 2</span>
-   <li><a href="#well-known-privacy-policy-url">well-known privacy policy URL</a><span>, in § 2</span>
+   <li><a href="#abstract-opdef-construct-a-well-known-privacy-policy-url">construct a well-known privacy policy URL</a><span>, in § 2.1</span>
+   <li><a href="#abstract-opdef-construct-a-well-known-terms-of-service-url">construct a well-known terms of service URL</a><span>, in § 2.2</span>
+   <li><a href="#privacy-policy-url">privacy policy URL</a><span>, in § 2.1</span>
+   <li><a href="#terms-of-service-url">terms of service URL</a><span>, in § 2.2</span>
+   <li><a href="#well-known-privacy-policy-url">well-known privacy policy URL</a><span>, in § 2.1</span>
+   <li><a href="#well-known-terms-of-service-url">well-known terms of service URL</a><span>, in § 2.2</span>
   </ul>
-  <aside class="dfn-panel" data-for="term-for-concept-request-credentials-mode">
-   <a href="https://fetch.spec.whatwg.org/#concept-request-credentials-mode">https://fetch.spec.whatwg.org/#concept-request-credentials-mode</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-request-credentials-mode">2. The privacy-policy Well-Known URL</a> <a href="#ref-for-concept-request-credentials-mode①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-request-referrer">
-   <a href="https://fetch.spec.whatwg.org/#concept-request-referrer">https://fetch.spec.whatwg.org/#concept-request-referrer</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-request-referrer">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-response">
-   <a href="https://fetch.spec.whatwg.org/#concept-response">https://fetch.spec.whatwg.org/#concept-response</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-response">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-response-status">
-   <a href="https://fetch.spec.whatwg.org/#concept-response-status">https://fetch.spec.whatwg.org/#concept-response-status</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-response-status">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-the-a-element">
-   <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element">https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-a-element">1. Introduction</a>
-    <li><a href="#ref-for-the-a-element①">3. The privacy-policy Link Type</a> <a href="#ref-for-the-a-element②">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-the-area-element">
-   <a href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element">https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-area-element">1. Introduction</a>
-    <li><a href="#ref-for-the-area-element①">3. The privacy-policy Link Type</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-body-ok">
-   <a href="https://html.spec.whatwg.org/#body-ok">https://html.spec.whatwg.org/#body-ok</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-body-ok">3. The privacy-policy Link Type</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-the-form-element">
-   <a href="https://html.spec.whatwg.org/multipage/forms.html#the-form-element">https://html.spec.whatwg.org/multipage/forms.html#the-form-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-form-element">3. The privacy-policy Link Type</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-the-head-element">
-   <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-head-element">https://html.spec.whatwg.org/multipage/semantics.html#the-head-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-head-element">3. The privacy-policy Link Type</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-hyperlink">
-   <a href="https://html.spec.whatwg.org/multipage/links.html#hyperlink">https://html.spec.whatwg.org/multipage/links.html#hyperlink</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-hyperlink">3. The privacy-policy Link Type</a> <a href="#ref-for-hyperlink①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-the-link-element">
-   <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-link-element">1. Introduction</a>
-    <li><a href="#ref-for-the-link-element①">3. The privacy-policy Link Type</a> <a href="#ref-for-the-link-element②">(2)</a> <a href="#ref-for-the-link-element③">(3)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-link-type">
-   <a href="https://html.spec.whatwg.org/#link-type">https://html.spec.whatwg.org/#link-type</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-link-type">3. The privacy-policy Link Type</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-origin">
-   <a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin">https://html.spec.whatwg.org/multipage/browsers.html#concept-origin</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-origin">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-origin-tuple">
-   <a href="https://html.spec.whatwg.org/multipage/browsers.html#concept-origin-tuple">https://html.spec.whatwg.org/multipage/browsers.html#concept-origin-tuple</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-origin-tuple">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-potentially-trustworthy-origin">
-   <a href="https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin">https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-potentially-trustworthy-origin">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-url-host">
-   <a href="https://url.spec.whatwg.org/#concept-url-host">https://url.spec.whatwg.org/#concept-url-host</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-url-host">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-url-path">
-   <a href="https://url.spec.whatwg.org/#concept-url-path">https://url.spec.whatwg.org/#concept-url-path</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-url-path">2. The privacy-policy Well-Known URL</a> <a href="#ref-for-concept-url-path①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-url-port">
-   <a href="https://url.spec.whatwg.org/#concept-url-port">https://url.spec.whatwg.org/#concept-url-port</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-url-port">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-concept-url-scheme">
-   <a href="https://url.spec.whatwg.org/#concept-url-scheme">https://url.spec.whatwg.org/#concept-url-scheme</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-concept-url-scheme">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
     <a data-link-type="biblio">[FETCH]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-concept-request-credentials-mode">credentials mode</span>
-     <li><span class="dfn-paneled" id="term-for-concept-request-referrer">referrer</span>
-     <li><span class="dfn-paneled" id="term-for-concept-response">response</span>
-     <li><span class="dfn-paneled" id="term-for-concept-response-status">status</span>
+     <li><span class="dfn-paneled" id="902380f7">credentials mode</span>
+     <li><span class="dfn-paneled" id="358f1dbd">referrer</span>
+     <li><span class="dfn-paneled" id="ee7bba09">response</span>
+     <li><span class="dfn-paneled" id="a1d47575">status</span>
     </ul>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-the-a-element">a</span>
-     <li><span class="dfn-paneled" id="term-for-the-area-element">area</span>
-     <li><span class="dfn-paneled" id="term-for-body-ok">body-ok</span>
-     <li><span class="dfn-paneled" id="term-for-the-form-element">form</span>
-     <li><span class="dfn-paneled" id="term-for-the-head-element">head</span>
-     <li><span class="dfn-paneled" id="term-for-hyperlink">hyperlink</span>
-     <li><span class="dfn-paneled" id="term-for-the-link-element">link</span>
-     <li><span class="dfn-paneled" id="term-for-link-type">link type</span>
-     <li><span class="dfn-paneled" id="term-for-concept-origin">origin</span>
-     <li><span class="dfn-paneled" id="term-for-concept-origin-tuple">tuple origin</span>
+     <li><span class="dfn-paneled" id="68bf3d31">a</span>
+     <li><span class="dfn-paneled" id="a1a807e5">area</span>
+     <li><span class="dfn-paneled" id="d78cd7fe">body-ok</span>
+     <li><span class="dfn-paneled" id="946a9318">form</span>
+     <li><span class="dfn-paneled" id="273ad187">head</span>
+     <li><span class="dfn-paneled" id="5423e8ff">hyperlink</span>
+     <li><span class="dfn-paneled" id="6cfa013d">link</span>
+     <li><span class="dfn-paneled" id="cdcb241e">link type</span>
+     <li><span class="dfn-paneled" id="086e3aff">origin</span>
+     <li><span class="dfn-paneled" id="2037b271">rel</span>
+     <li><span class="dfn-paneled" id="1d2aa117">tuple origin</span>
     </ul>
    <li>
     <a data-link-type="biblio">[SECURE-CONTEXTS]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-potentially-trustworthy-origin">potentially trustworthy origin</span>
+     <li><span class="dfn-paneled" id="96dabee7">potentially trustworthy origin</span>
     </ul>
    <li>
     <a data-link-type="biblio">[URL]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-concept-url-host">host</span>
-     <li><span class="dfn-paneled" id="term-for-concept-url-path">path</span>
-     <li><span class="dfn-paneled" id="term-for-concept-url-port">port</span>
-     <li><span class="dfn-paneled" id="term-for-concept-url-scheme">scheme</span>
+     <li><span class="dfn-paneled" id="b85ee3be">host</span>
+     <li><span class="dfn-paneled" id="c0868016">path</span>
+     <li><span class="dfn-paneled" id="852ada56">port</span>
+     <li><span class="dfn-paneled" id="3a711be7">scheme</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -1026,77 +1075,534 @@ the IESG for review, approval, and registration with IANA using the template def
    <dt id="biblio-rfc8615">[RFC8615]
    <dd>M. Nottingham. <a href="https://www.rfc-editor.org/rfc/rfc8615"><cite>Well-Known Uniform Resource Identifiers (URIs)</cite></a>. May 2019. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8615">https://www.rfc-editor.org/rfc/rfc8615</a>
   </dl>
-  <aside class="dfn-panel" data-for="privacy-policy-url">
-   <b><a href="#privacy-policy-url">#privacy-policy-url</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-privacy-policy-url">2. The privacy-policy Well-Known URL</a> <a href="#ref-for-privacy-policy-url①">(2)</a> <a href="#ref-for-privacy-policy-url②">(3)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="well-known-privacy-policy-url">
-   <b><a href="#well-known-privacy-policy-url">#well-known-privacy-policy-url</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-well-known-privacy-policy-url">2. The privacy-policy Well-Known URL</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="abstract-opdef-construct-a-well-known-privacy-policy-url">
-   <b><a href="#abstract-opdef-construct-a-well-known-privacy-policy-url">#abstract-opdef-construct-a-well-known-privacy-policy-url</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-abstract-opdef-construct-a-well-known-privacy-policy-url">4.1. Scope</a>
-   </ul>
-  </aside>
-<script>/* script-dfn-panel */
+<script>/* Boilerplate: script-dfn-panel */
+"use strict";
+{
+    const dfnsJson = window.dfnsJson || {};
 
-document.body.addEventListener("click", function(e) {
-    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
-    // Find the dfn element or panel, if any, that was clicked on.
-    var el = e.target;
-    var target;
-    var hitALink = false;
-    while(el.parentElement) {
-        if(el.tagName == "A") {
-            // Clicking on a link in a <dfn> shouldn't summon the panel
-            hitALink = true;
-        }
-        if(el.classList.contains("dfn-paneled")) {
-            target = "dfn";
-            break;
-        }
-        if(el.classList.contains("dfn-panel")) {
-            target = "dfn-panel";
-            break;
-        }
-        el = el.parentElement;
+    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
+        return mk.aside({
+            class: "dfn-panel",
+            id: `infopanel-for-${dfnID}`,
+            "data-for": dfnID,
+            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+            },
+            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+                `Info about the '${dfnText}' ${external?"external":""} reference.`),
+            mk.a({href:url}, url),
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({
+                                    href: `#${ref.id}`
+                                    },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        );
     }
-    if(target != "dfn-panel") {
-        // Turn off any currently "on" or "activated" panels.
-        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
-            el.classList.remove("on");
-            el.classList.remove("activated");
-        });
-    }
-    if(target == "dfn" && !hitALink) {
-        // open the panel
-        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
-        if(dfnPanel) {
-            dfnPanel.classList.add("on");
-            var rect = el.getBoundingClientRect();
-            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
-            dfnPanel.style.top = window.scrollY + rect.top + "px";
-            var panelRect = dfnPanel.getBoundingClientRect();
-            var panelWidth = panelRect.right - panelRect.left;
-            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
-                // Reposition, because the panel is overflowing
-                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+
+    function genAllDfnPanels() {
+        for(const panelData of Object.values(window.dfnpanelData)) {
+            const dfnID = panelData.dfnID;
+            const dfn = document.getElementById(dfnID);
+            if(!dfn) {
+                console.log(`Can't find dfn#${dfnID}.`, panelData);
+            } else {
+                const panel = genDfnPanel(panelData);
+                append(document.body, panel);
+                insertDfnPopupAction(dfn, panel)
             }
-        } else {
-            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
         }
-    } else if(target == "dfn-panel") {
-        // Switch it to "activated" state, which pins it.
-        el.classList.add("activated");
-        el.style.left = null;
-        el.style.top = null;
     }
 
+    document.addEventListener("DOMContentLoaded", ()=>{
+        genAllDfnPanels();
+
+        // Add popup behavior to all dfns to show the corresponding dfn-panel.
+        var dfns = queryAll('.dfn-paneled');
+        for(let dfn of dfns) { ; }
+
+        document.body.addEventListener("click", (e) => {
+            // If not handled already, just hide all dfn panels.
+            hideAllDfnPanels();
+        });
+    })
+
+
+    function hideAllDfnPanels() {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
+    }
+
+    function showDfnPanel(dfnPanel, dfn) {
+        hideAllDfnPanels(); // Only display one at this time.
+        dfn.setAttribute("aria-expanded", "true");
+        dfnPanel.classList.add("on");
+        dfnPanel.style.left = "5px";
+        dfnPanel.style.top = "0px";
+        const panelRect = dfnPanel.getBoundingClientRect();
+        const panelWidth = panelRect.right - panelRect.left;
+        if (panelRect.right > document.body.scrollWidth) {
+            // Panel's overflowing the screen.
+            // Just drop it below the dfn and flip it rightward instead.
+            // This still wont' fix things if the screen is *really* wide,
+            // but fixing that's a lot harder without 'anchor()'.
+            dfnPanel.style.top = "1.5em";
+            dfnPanel.style.left = "auto";
+            dfnPanel.style.right = "0px";
+        }
+    }
+
+    function pinDfnPanel(dfnPanel) {
+        // Switch it to "activated" state, which pins it.
+        dfnPanel.classList.add("activated");
+        dfnPanel.style.left = null;
+        dfnPanel.style.top = null;
+    }
+
+    function hideDfnPanel(dfnPanel, dfn) {
+        if(!dfn) {
+            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+        }
+        dfn.setAttribute("aria-expanded", "false")
+        dfnPanel.classList.remove("on");
+        dfnPanel.classList.remove("activated");
+    }
+
+    function toggleDfnPanel(dfnPanel, dfn) {
+        if(dfnPanel.classList.contains("on")) {
+            hideDfnPanel(dfnPanel, dfn);
+        } else {
+            showDfnPanel(dfnPanel, dfn);
+        }
+    }
+
+    function insertDfnPopupAction(dfn, dfnPanel) {
+        // Find dfn panel
+        const panelWrapper = document.createElement('span');
+        panelWrapper.appendChild(dfnPanel);
+        panelWrapper.style.position = "relative";
+        panelWrapper.style.height = "0px";
+        dfn.insertAdjacentElement("afterend", panelWrapper);
+        dfn.setAttribute('role', 'button');
+        dfn.setAttribute('aria-expanded', 'false')
+        dfn.tabIndex = 0;
+        dfn.classList.add('has-dfn-panel');
+        dfn.addEventListener('click', (event) => {
+            showDfnPanel(dfnPanel, dfn);
+            event.stopPropagation();
+        });
+        dfn.addEventListener('keypress', (event) => {
+            const kc = event.keyCode;
+            // 32->Space, 13->Enter
+            if(kc == 32 || kc == 13) {
+                toggleDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        });
+
+        dfnPanel.addEventListener('click', (event) => {
+            if (event.target.nodeName == 'A') {
+                pinDfnPanel(dfnPanel);
+            }
+            event.stopPropagation();
+        });
+
+        dfnPanel.addEventListener('keydown', (event) => {
+            if(event.keyCode == 27) { // Escape key
+                hideDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        })
+    }
+}
+</script>
+<script>/* Boilerplate: script-dfn-panel */
+"use strict";
+{
+    const dfnsJson = window.dfnsJson || {};
+
+    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
+        return mk.aside({
+            class: "dfn-panel",
+            id: `infopanel-for-${dfnID}`,
+            "data-for": dfnID,
+            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+            },
+            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+                `Info about the '${dfnText}' ${external?"external":""} reference.`),
+            mk.a({href:url}, url),
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({
+                                    href: `#${ref.id}`
+                                    },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        );
+    }
+
+    function genAllDfnPanels() {
+        for(const panelData of Object.values(window.dfnpanelData)) {
+            const dfnID = panelData.dfnID;
+            const dfn = document.getElementById(dfnID);
+            if(!dfn) {
+                console.log(`Can't find dfn#${dfnID}.`, panelData);
+            } else {
+                const panel = genDfnPanel(panelData);
+                append(document.body, panel);
+                insertDfnPopupAction(dfn, panel)
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        genAllDfnPanels();
+
+        // Add popup behavior to all dfns to show the corresponding dfn-panel.
+        var dfns = queryAll('.dfn-paneled');
+        for(let dfn of dfns) { ; }
+
+        document.body.addEventListener("click", (e) => {
+            // If not handled already, just hide all dfn panels.
+            hideAllDfnPanels();
+        });
+    })
+
+
+    function hideAllDfnPanels() {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
+    }
+
+    function showDfnPanel(dfnPanel, dfn) {
+        hideAllDfnPanels(); // Only display one at this time.
+        dfn.setAttribute("aria-expanded", "true");
+        dfnPanel.classList.add("on");
+        dfnPanel.style.left = "5px";
+        dfnPanel.style.top = "0px";
+        const panelRect = dfnPanel.getBoundingClientRect();
+        const panelWidth = panelRect.right - panelRect.left;
+        if (panelRect.right > document.body.scrollWidth) {
+            // Panel's overflowing the screen.
+            // Just drop it below the dfn and flip it rightward instead.
+            // This still wont' fix things if the screen is *really* wide,
+            // but fixing that's a lot harder without 'anchor()'.
+            dfnPanel.style.top = "1.5em";
+            dfnPanel.style.left = "auto";
+            dfnPanel.style.right = "0px";
+        }
+    }
+
+    function pinDfnPanel(dfnPanel) {
+        // Switch it to "activated" state, which pins it.
+        dfnPanel.classList.add("activated");
+        dfnPanel.style.left = null;
+        dfnPanel.style.top = null;
+    }
+
+    function hideDfnPanel(dfnPanel, dfn) {
+        if(!dfn) {
+            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+        }
+        dfn.setAttribute("aria-expanded", "false")
+        dfnPanel.classList.remove("on");
+        dfnPanel.classList.remove("activated");
+    }
+
+    function toggleDfnPanel(dfnPanel, dfn) {
+        if(dfnPanel.classList.contains("on")) {
+            hideDfnPanel(dfnPanel, dfn);
+        } else {
+            showDfnPanel(dfnPanel, dfn);
+        }
+    }
+
+    function insertDfnPopupAction(dfn, dfnPanel) {
+        // Find dfn panel
+        const panelWrapper = document.createElement('span');
+        panelWrapper.appendChild(dfnPanel);
+        panelWrapper.style.position = "relative";
+        panelWrapper.style.height = "0px";
+        dfn.insertAdjacentElement("afterend", panelWrapper);
+        dfn.setAttribute('role', 'button');
+        dfn.setAttribute('aria-expanded', 'false')
+        dfn.tabIndex = 0;
+        dfn.classList.add('has-dfn-panel');
+        dfn.addEventListener('click', (event) => {
+            showDfnPanel(dfnPanel, dfn);
+            event.stopPropagation();
+        });
+        dfn.addEventListener('keypress', (event) => {
+            const kc = event.keyCode;
+            // 32->Space, 13->Enter
+            if(kc == 32 || kc == 13) {
+                toggleDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        });
+
+        dfnPanel.addEventListener('click', (event) => {
+            if (event.target.nodeName == 'A') {
+                pinDfnPanel(dfnPanel);
+            }
+            event.stopPropagation();
+        });
+
+        dfnPanel.addEventListener('keydown', (event) => {
+            if(event.keyCode == 27) { // Escape key
+                hideDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        })
+    }
+}
+</script>
+<script>/* Boilerplate: script-dfn-panel-json */
+window.dfnpanelData = {};
+window.dfnpanelData['902380f7'] = {"dfnID": "902380f7", "url": "https://fetch.spec.whatwg.org/#concept-request-credentials-mode", "dfnText": "credentials mode", "refSections": [{"refs": [{"id": "ref-for-concept-request-credentials-mode"}], "title": "2.4. Client Considerations"}], "external": true};
+window.dfnpanelData['358f1dbd'] = {"dfnID": "358f1dbd", "url": "https://fetch.spec.whatwg.org/#concept-request-referrer", "dfnText": "referrer", "refSections": [{"refs": [{"id": "ref-for-concept-request-referrer"}], "title": "2.4. Client Considerations"}], "external": true};
+window.dfnpanelData['ee7bba09'] = {"dfnID": "ee7bba09", "url": "https://fetch.spec.whatwg.org/#concept-response", "dfnText": "response", "refSections": [{"refs": [{"id": "ref-for-concept-response"}], "title": "2.3. Server Considerations"}], "external": true};
+window.dfnpanelData['a1d47575'] = {"dfnID": "a1d47575", "url": "https://fetch.spec.whatwg.org/#concept-response-status", "dfnText": "status", "refSections": [{"refs": [{"id": "ref-for-concept-response-status"}], "title": "2.3. Server Considerations"}], "external": true};
+window.dfnpanelData['68bf3d31'] = {"dfnID": "68bf3d31", "url": "https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element", "dfnText": "a", "refSections": [{"refs": [{"id": "ref-for-the-a-element"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-the-a-element\u2460"}, {"id": "ref-for-the-a-element\u2461"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-the-a-element\u2462"}, {"id": "ref-for-the-a-element\u2463"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['a1a807e5'] = {"dfnID": "a1a807e5", "url": "https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element", "dfnText": "area", "refSections": [{"refs": [{"id": "ref-for-the-area-element"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-the-area-element\u2460"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-the-area-element\u2461"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['d78cd7fe'] = {"dfnID": "d78cd7fe", "url": "https://html.spec.whatwg.org/#body-ok", "dfnText": "body-ok", "refSections": [{"refs": [{"id": "ref-for-body-ok"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-body-ok\u2460"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['946a9318'] = {"dfnID": "946a9318", "url": "https://html.spec.whatwg.org/multipage/forms.html#the-form-element", "dfnText": "form", "refSections": [{"refs": [{"id": "ref-for-the-form-element"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-the-form-element\u2460"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['273ad187'] = {"dfnID": "273ad187", "url": "https://html.spec.whatwg.org/multipage/semantics.html#the-head-element", "dfnText": "head", "refSections": [{"refs": [{"id": "ref-for-the-head-element"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-the-head-element\u2460"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['5423e8ff'] = {"dfnID": "5423e8ff", "url": "https://html.spec.whatwg.org/multipage/links.html#hyperlink", "dfnText": "hyperlink", "refSections": [{"refs": [{"id": "ref-for-hyperlink"}, {"id": "ref-for-hyperlink\u2460"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-hyperlink\u2461"}, {"id": "ref-for-hyperlink\u2462"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['6cfa013d'] = {"dfnID": "6cfa013d", "url": "https://html.spec.whatwg.org/multipage/semantics.html#the-link-element", "dfnText": "link", "refSections": [{"refs": [{"id": "ref-for-the-link-element"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-the-link-element\u2460"}, {"id": "ref-for-the-link-element\u2461"}, {"id": "ref-for-the-link-element\u2462"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-the-link-element\u2463"}, {"id": "ref-for-the-link-element\u2464"}, {"id": "ref-for-the-link-element\u2465"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['cdcb241e'] = {"dfnID": "cdcb241e", "url": "https://html.spec.whatwg.org/#link-type", "dfnText": "link type", "refSections": [{"refs": [{"id": "ref-for-link-type"}], "title": "3.1. The privacy-policy Link Type"}, {"refs": [{"id": "ref-for-link-type\u2460"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['086e3aff'] = {"dfnID": "086e3aff", "url": "https://html.spec.whatwg.org/multipage/browsers.html#concept-origin", "dfnText": "origin", "refSections": [{"refs": [{"id": "ref-for-concept-origin"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-concept-origin\u2460"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['2037b271'] = {"dfnID": "2037b271", "url": "https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-rel", "dfnText": "rel", "refSections": [{"refs": [{"id": "ref-for-attr-hyperlink-rel"}], "title": "3.2. The terms-of-service Link Type"}], "external": true};
+window.dfnpanelData['1d2aa117'] = {"dfnID": "1d2aa117", "url": "https://html.spec.whatwg.org/multipage/browsers.html#concept-origin-tuple", "dfnText": "tuple origin", "refSections": [{"refs": [{"id": "ref-for-concept-origin-tuple"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-concept-origin-tuple\u2460"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['96dabee7'] = {"dfnID": "96dabee7", "url": "https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin", "dfnText": "potentially trustworthy origin", "refSections": [{"refs": [{"id": "ref-for-potentially-trustworthy-origin"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-potentially-trustworthy-origin\u2460"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['b85ee3be'] = {"dfnID": "b85ee3be", "url": "https://url.spec.whatwg.org/#concept-url-host", "dfnText": "host", "refSections": [{"refs": [{"id": "ref-for-concept-url-host"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-concept-url-host\u2460"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['c0868016'] = {"dfnID": "c0868016", "url": "https://url.spec.whatwg.org/#concept-url-path", "dfnText": "path", "refSections": [{"refs": [{"id": "ref-for-concept-url-path"}, {"id": "ref-for-concept-url-path\u2460"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-concept-url-path\u2461"}, {"id": "ref-for-concept-url-path\u2462"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['852ada56'] = {"dfnID": "852ada56", "url": "https://url.spec.whatwg.org/#concept-url-port", "dfnText": "port", "refSections": [{"refs": [{"id": "ref-for-concept-url-port"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-concept-url-port\u2460"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['3a711be7'] = {"dfnID": "3a711be7", "url": "https://url.spec.whatwg.org/#concept-url-scheme", "dfnText": "scheme", "refSections": [{"refs": [{"id": "ref-for-concept-url-scheme"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-concept-url-scheme\u2460"}], "title": "2.2. The terms-of-service Well-Known URL"}], "external": true};
+window.dfnpanelData['privacy-policy-url'] = {"dfnID": "privacy-policy-url", "url": "#privacy-policy-url", "dfnText": "privacy policy URL", "refSections": [{"refs": [{"id": "ref-for-privacy-policy-url"}], "title": "2.1. The privacy-policy Well-Known URL"}, {"refs": [{"id": "ref-for-privacy-policy-url\u2460"}, {"id": "ref-for-privacy-policy-url\u2461"}], "title": "2.3. Server Considerations"}], "external": false};
+window.dfnpanelData['well-known-privacy-policy-url'] = {"dfnID": "well-known-privacy-policy-url", "url": "#well-known-privacy-policy-url", "dfnText": "well-known privacy policy URL", "refSections": [{"refs": [{"id": "ref-for-well-known-privacy-policy-url"}], "title": "2.3. Server Considerations"}], "external": false};
+window.dfnpanelData['abstract-opdef-construct-a-well-known-privacy-policy-url'] = {"dfnID": "abstract-opdef-construct-a-well-known-privacy-policy-url", "url": "#abstract-opdef-construct-a-well-known-privacy-policy-url", "dfnText": "construct a well-known privacy\npolicy URL", "refSections": [{"refs": [{"id": "ref-for-abstract-opdef-construct-a-well-known-privacy-policy-url"}], "title": "4.1. Scope"}], "external": false};
+window.dfnpanelData['terms-of-service-url'] = {"dfnID": "terms-of-service-url", "url": "#terms-of-service-url", "dfnText": "terms of service URL", "refSections": [{"refs": [{"id": "ref-for-terms-of-service-url"}], "title": "2.2. The terms-of-service Well-Known URL"}, {"refs": [{"id": "ref-for-terms-of-service-url\u2460"}], "title": "2.3. Server Considerations"}], "external": false};
+window.dfnpanelData['well-known-terms-of-service-url'] = {"dfnID": "well-known-terms-of-service-url", "url": "#well-known-terms-of-service-url", "dfnText": "well-known terms of service URL", "refSections": [{"refs": [{"id": "ref-for-well-known-terms-of-service-url"}], "title": "2.3. Server Considerations"}], "external": false};
+window.dfnpanelData['abstract-opdef-construct-a-well-known-terms-of-service-url'] = {"dfnID": "abstract-opdef-construct-a-well-known-terms-of-service-url", "url": "#abstract-opdef-construct-a-well-known-terms-of-service-url", "dfnText": "construct a well-known terms of\nservice URL", "refSections": [{"refs": [{"id": "ref-for-abstract-opdef-construct-a-well-known-terms-of-service-url"}], "title": "4.1. Scope"}], "external": false};
+</script>
+<script>/* Boilerplate: script-dom-helper */
+function query(sel) { return document.querySelector(sel); }
+
+function queryAll(sel) { return [...document.querySelectorAll(sel)]; }
+
+function iter(obj) {
+	if(!obj) return [];
+	var it = obj[Symbol.iterator];
+	if(it) return it;
+	return Object.entries(obj);
+}
+
+function mk(tagname, attrs, ...children) {
+	const el = document.createElement(tagname);
+	for(const [k,v] of iter(attrs)) {
+		if(k.slice(0,3) == "_on") {
+			const eventName = k.slice(3);
+			el.addEventListener(eventName, v);
+		} else if(k[0] == "_") {
+			// property, not attribute
+			el[k.slice(1)] = v;
+		} else {
+			if(v === false || v == null) {
+        continue;
+      } else if(v === true) {
+        el.setAttribute(k, "");
+        continue;
+      } else {
+  			el.setAttribute(k, v);
+      }
+		}
+	}
+	append(el, children);
+	return el;
+}
+
+/* Create shortcuts for every known HTML element */
+[
+  "a",
+  "abbr",
+  "acronym",
+  "address",
+  "applet",
+  "area",
+  "article",
+  "aside",
+  "audio",
+  "b",
+  "base",
+  "basefont",
+  "bdo",
+  "big",
+  "blockquote",
+  "body",
+  "br",
+  "button",
+  "canvas",
+  "caption",
+  "center",
+  "cite",
+  "code",
+  "col",
+  "colgroup",
+  "datalist",
+  "dd",
+  "del",
+  "details",
+  "dfn",
+  "dialog",
+  "div",
+  "dl",
+  "dt",
+  "em",
+  "embed",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "font",
+  "footer",
+  "form",
+  "frame",
+  "frameset",
+  "head",
+  "header",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "hr",
+  "html",
+  "i",
+  "iframe",
+  "img",
+  "input",
+  "ins",
+  "kbd",
+  "label",
+  "legend",
+  "li",
+  "link",
+  "main",
+  "map",
+  "mark",
+  "meta",
+  "meter",
+  "nav",
+  "nobr",
+  "noscript",
+  "object",
+  "ol",
+  "optgroup",
+  "option",
+  "output",
+  "p",
+  "param",
+  "pre",
+  "progress",
+  "q",
+  "s",
+  "samp",
+  "script",
+  "section",
+  "select",
+  "small",
+  "source",
+  "span",
+  "strike",
+  "strong",
+  "style",
+  "sub",
+  "summary",
+  "sup",
+  "table",
+  "tbody",
+  "td",
+  "template",
+  "textarea",
+  "tfoot",
+  "th",
+  "thead",
+  "time",
+  "title",
+  "tr",
+  "u",
+  "ul",
+  "var",
+  "video",
+  "wbr",
+  "xmp",
+].forEach(tagname=>{
+	mk[tagname] = (...args) => mk(tagname, ...args);
 });
+
+function* nodesFromChildList(children) {
+	for(const child of children.flat(Infinity)) {
+		if(child instanceof Node) {
+			yield child;
+		} else {
+			yield new Text(child);
+		}
+	}
+}
+function append(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		if(el instanceof Node) el.appendChild(child);
+		else el.push(child);
+	}
+	return el;
+}
+
+function insertAfter(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		el.parentNode.insertBefore(child, el.nextSibling);
+	}
+	return el;
+}
+
+function clearContents(el) {
+	el.innerHTML = "";
+	return el;
+}
+
+function parseHTML(markup) {
+	if(markup.toLowerCase().trim().indexOf('<!doctype') === 0) {
+		const doc = document.implementation.createHTMLDocument("");
+		doc.documentElement.innerHTML = markup;
+		return doc;
+	} else {
+		const el = mk.template({});
+		el.innerHTML = markup;
+		return el.content;
+	}
+}
 </script>

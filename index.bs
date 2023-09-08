@@ -1,15 +1,16 @@
 <pre class='metadata'>
-Title: Privacy Policy Discovery
-Shortname: privacy-policy-discovery
+Title: Policy Discovery
+Shortname: policy-discovery
 Level: None
 Status: w3c/UD
 ED: https://mikewest.github.io/privacy-policy-discovery/
 Editor: Mike West 56384, Google Inc., mkwst@google.com
 Markup Shorthands: markdown yes
 Abstract:
-  This specification defines a well-known URL which allows an origin to make its privacy policy
-  easily discoverable: <code>/.well-known/privacy-policy</code>. It also defines a link type which
-  can likewise improve discoverability: <code>rel="privacy-policy"</code>.
+  This specification defines well-known URLs which allow an origin to make its privacy policy and
+  terms of service easily discoverable: <code>/.well-known/privacy-policy</code>, and
+  <code>/.well-known/terms-of-service</code>. It also defines link types which can likewise improve
+  discoverability: <code>rel="privacy-policy"</code> and <code>rel="terms-of-service"</code>.
 </pre>
 <pre class='link-defaults'>
 spec:html; type:element; text:a
@@ -29,33 +30,38 @@ Introduction {#intro}
 
 <em>This section is non-normative.</em>
 
-A website's privacy policy is an important document, describing the ways in which data that flows
-through the site can be used, managed, shared, combined with other data sources, and so on. The
-precise definition and impact of a privacy policy will vary based on a number of factors, but it
-seems clear that whatever the exact contours of the legal framework in which it exists, it
+Websites' privacy policies and terms of service are important documents, describing the ways in
+which data that flows through the site can be used, managed, shared, combined with other data
+sources; and the agreements under which the website offers its services. The precise definition
+and impact of these policy documents will vary based on a number of factors, but it
+seems clear that whatever the exact contours of the legal framework in which it exists, they
 represents a set of promises that the site's users ought to be able to rely upon.  It's therefore
-an important document for users to be able to easily discover, read through, and rely upon when
-interacting with a site.
+important for users to be able to easily discover, read through, and rely upon them interacting
+with a site.
 
-Recognizing this, many sites will place a prominent link to their privacy policies in a place where
+Recognizing this, many sites will place a prominent link to their policies in a place where
 they believe users might look for it: the site's footer, for example. This document suggests two
-improvements to discoverability which may help user agents and other tools make privacy policies
-more accessible to users (perhaps by exposing links to a site's privacy policy in prominent places
+improvements to discoverability which may help user agents and other tools make policy documents
+more accessible to users (perhaps by exposing links to a site's policies in prominent places
 in the user agent's UI):
 
-1.  [[#well-known]] defines the `/.well-known/privacy-policy` well-known URI [[RFC8615]].
+1.  [[#well-known]] defines the `/.well-known/privacy-policy` and `/.well-known/terms-of-service`
+    well-known URIs [[RFC8615]].
 
-2.  [[#link-type]] defines the `privacy-policy` link type, which can be used to annotate
-    <{a}> and <{link}> elements that reference the privacy policy that applies to a given document
-    (<{area}> too, I suppose).
+2.  [[#link-type]] defines the `privacy-policy` and `terms-of-service` link types, which can be
+    used to annotate <{a}> and <{link}> elements that reference the policies that apply to a
+    given document (and <{area}> too, I suppose... why not?).
 
-The `privacy-policy` Well-Known URL {#well-known}
-=================================================
+Well-Known URLs {#well-known}
+=============================
+
+The `privacy-policy` Well-Known URL {#well-known-privacy-policy}
+----------------------------------------------------------------
 
 An origin's <dfn>privacy policy URL</dfn> is a URL that directly identifies the origin's privacy
 policy resource. An origin's <dfn>well-known privacy policy URL</dfn> is a URL whose [=url/path=]
-component is `/.well-known/privacy-policy`. It returns a response that redirects to the
-[=privacy policy URL=], thereby facilitating its automated discovery.
+component is `/.well-known/privacy-policy`. Responses to requests for this resource should redirect
+to the [=privacy policy URL=], thereby facilitating its automated discovery.
 
 Given an [=origin=] (|origin|), a client can <dfn abstract-op>construct a well-known privacy
 policy URL</dfn> by running the following steps:
@@ -77,25 +83,53 @@ policy URL</dfn> by running the following steps:
 
 4. Return |url|.
 
+The `terms-of-service` Well-Known URL {#well-known-terms-of-service}
+--------------------------------------------------------------------
+
+An origin's <dfn>terms of service URL</dfn> is a URL that directly identifies the origin's terms of
+service resource. An origin's <dfn>well-known terms of service URL</dfn> is a URL whose [=url/path=]
+component is `/.well-known/terms-of-service`. Responses to requests for this resource should redirect
+to the [=terms of service URL=], thereby facilitating its automated discovery.
+
+Given an [=origin=] (|origin|), a client can <dfn abstract-op>construct a well-known terms of
+service URL</dfn> by running the following steps:
+
+1.  If |origin| is not a [=potentially trustworthy origin=], return `failure`.
+
+    Note: Origins which are not delivered securely can make no meaningful promises about the privacy
+    of data flowing to and from the client, as the communication channel is plaintext and available
+    to (and manipulatable by) anyone on the network between the client and the server.
+
+2.  Assert: |origin| is a [=tuple origin=].
+
+3.  Let |url| be a new URL with values set as follows:
+
+    *   [=url/scheme=]: |origin|'s scheme.
+    *   [=url/host=]: |origin|'s host.
+    *   [=url/port=]: |origin|'s port.
+    *   [=url/path=]: « ".well-known", "terms-of-service" »
+
+4. Return |url|.
+
+Server Considerations {#well-known-server}
+------------------------------------------
+
 Servers complying with this document's recommendations SHOULD respond to requests for an origin's
-[=well-known privacy policy URL=] with a [=response=] whose [=response/status=] is one of
-« 302, 303, 307 », and which contains a `Location` header whose value is the origin's
-[=privacy policy URL=]. Servers MAY also return a `Location` header whose value is a URL that,
-in turn, redirects to the origin's privacy policy URL. 
+[=well-known privacy policy URL=] and [=well-known terms of service URL=] with a [=response=]
+whose [=response/status=] is one of « 302, 303, 307 », and which contains a `Location` header
+whose value is the origin's [=privacy policy URL=] or [=terms of service URL=], respectively.
+
+Servers MAY also return a `Location` header whose value is a URL that, in turn, redirects to the
+requested resource. 
 
 Note: The status codes here support only temporary redirects. As discussed in
 [w3c/webappsec-change-password-url#13](https://github.com/w3c/webappsec-change-password-url/issues/13),
 this intentionally excludes permanent redirect codes in order to ensure that intermediate caches and
 client applications continue to check the well-known URL to catch changes in a site's structure.
 
-Further, an origin's [=privacy policy URL=] does not need to live on that origin. Clients should
-support a setup allowing `https://example.com`'s privacy policy to live on
-`https://policies.example.com/privacy` or `https://holding-company.example/privacy`,
-for example.
-
-Given the potentially-cross-origin nature of these requests, clients making automated requests for
-well-known privacy policy URLs are encouraged to do so with the request's
-[=request/credentials mode=] set to `omit` and its [=request/referrer=] set to `no-referrer`.
+An origin's [=privacy policy URL=] does not need to live on that origin. Clients should support
+`https://example.com`'s policy documents being hosted by `https://policies.example.com/` or
+`https://holding-company.example/`, for example.
 
 <div class="example">
 Assuming that `https://example.com/` has a privacy policy which lives at
@@ -110,11 +144,22 @@ Location: https://example.com/privacy
 
 </div>
 
-Clients making automated requests for well-known privacy policy URLs are encouraged to do so with
-the request's [=request/credentials mode=] set to `omit`.
+Client Considerations {#well-known-client}
+------------------------------------------
 
-The `privacy-policy` Link Type {#link-type}
-===========================================
+Given the potentially-cross-origin nature of these requests, clients making automated requests for
+these well-known URLs are encouraged to do so with the request's [=request/credentials mode=] set
+to `omit` and its [=request/referrer=] set to `no-referrer`.
+
+Link Types {#link-type}
+=======================
+
+Note: The following two sections define the `privacy-policy` and `terms-of-service` link types. If
+standardized, these should eventually migrate to HTML's
+[list of link types](https://html.spec.whatwg.org/multipage/links.html#linkTypes).
+
+The `privacy-policy` Link Type {#link-type-privacy-policy}
+----------------------------------------------------------
 
 Sites are encouraged to place links to their privacy policy in conspicuous places where users might
 look for them. To improve discoverability, this document defines the `privacy-policy` [=link type=]
@@ -147,7 +192,7 @@ This extension to HTML's set of link types has the following properties:
 :   Effect on <{form}>
 ::  Not allowed
 :   [=body-ok=]
-:   Yes
+::  Yes
 :   Has <{link}> processing
 ::  No
 :   Brief Description
@@ -155,8 +200,9 @@ This extension to HTML's set of link types has the following properties:
     that apply to the current context. This may be a standalone privacy policy, or a specific
     section of some more general document.
 
-<div class="note">
-Note: The [microformats wiki existing-rel-values page](https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions)
+<div class="note" role="note">
+<span class="marker">Note:</span>
+The [microformats wiki existing-rel-values page](https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions)
 contains a reference to a `privacy` link type. This document suggests "`privacy-policy`" instead, as that
 seems to be more commonly used on today's internet: HTTP Archive data from August, 2023 suggests
 that `rel="privacy-policy"` was used on 285,421 distinct documents, while `rel="privacy"` was used
@@ -183,31 +229,80 @@ WHERE
 </div>
 
 
+The `terms-of-service` Link Type {#link-type-terms-of-service}
+--------------------------------------------------------------
+
+Sites are encouraged to place links to their terms of service in conspicuous places where users
+might look for them. To improve discoverability, this document defines the `terms-of-service`
+[=link type=] as an annotation for <{a}> and <{link}> elements, enhancing their semantic meaning in
+a way user agents can understand and make available to users. 
+
+<div class="example">
+Assuming that `https://example.com/` has a terms of service which lives at
+`https://example.com/tos`, it might include the following link in its footer:
+
+```html
+<a rel="terms-of-service" href="https://example.com/tos">Terms of Service</a>
+```
+
+It might also include the following in its <{head}>:
+
+```html
+<link rel="terms-of-service" href="https://example.com/tos">
+```
+</div>
+
+This extension to HTML's set of link types has the following properties:
+
+:   Link Type
+::  `terms-of-service`
+:   Effect on <{link}>
+::  [=Hyperlink=]
+:   Effect on <{a}>, <{area}>
+::  [=Hyperlink=]
+:   Effect on <{form}>
+::  Not allowed
+:   [=body-ok=]
+::  Yes
+:   Has <{link}> processing
+::  No
+:   Brief Description
+::  Refers to a document which contains information about the agreements between a service provider
+    and users who wish to use the service provided.
+
+Note: HTTP Archive didn't give much guidance with regard to naming. The most popular <{a/rel}>
+attribute value that contained the word "terms" was `rel="terms of service"`, which unfortunately
+isn't an appropriate link type. This document is running with `terms-of-service`, though other
+names could certainly be reasonable (`terms-and-conditions`, `tos`, etc).
+
+
 Implementation Considerations {#impl}
 =====================================
 
-__This section is non-normative.__
+<em>This section is non-normative.</em>
 
 Scope {#scope}
 -----------------------
 
-This document defines a mechanism through which one and only one privacy policy can be declared as
-applicable to the entirety of an origin. This is reasonable, as that's the only security boundary
-that the web offers: data flowing to one page on an origin is accessible to other pages on the
-origin, as is storage, and potential server-side interrelations between pages are opaque to the
-user. Site operators are encouraged to make such a global policy available.
+The well-known URLs defined in this document provide a mechanism through which one and only one
+document can be declared as binding for the entirety of an origin. This is reasonable, as that's
+the only security boundary that the web offers: data flowing to one page on an origin is accessible
+to other pages on the origin, as is storage, and potential server-side interrelations between pages
+are opaque to the user. Site operators are encouraged to make such global policy documents
+available.
 
-It's important to note, however, that websites might host privacy policies for applications that
+It's important to note, however, that websites might host policies for applications that
 run outside the context of the web platform. `https://amazing-mobile-app.example` might offer a
 website alongside native apps on multiple platforms with differing data collection and usage
-characteristics. In this case, clients should expect `/.well-known/privacy-policy` to represent the
-privacy policy that applies to the web origin.
+characteristics. In this case, clients should expect the well-known URLs to represent only the
+policies that applies to the web origin.
 
-Note: It would be possible to extend this proposal with specific well-known links for privacy
+Note: It would be possible to extend this proposal with specific well-known links for 
 policies on a platform-by-platform basis (e.g. `/.well-known/privacy-policy/Windows`,
 `/.well-known/privacy-policy?platform=iOS`, or some other spelling). It's not clear whether that
 addition is worthwhile, but it would be fairly straightforward to define by adding a
-<var ignore>platform</var> parameter to the [$construct a well-known privacy policy URL$] algorithm.
+<var ignore>platform</var> parameter to the [$construct a well-known privacy policy URL$] and
+[$construct a well-known terms of service URL$] algorithm.
 
 
 Relation to P3P {#p3p}
@@ -222,16 +317,27 @@ at which origin's existing privacy policy prose resides.
 IANA Considerations {#iana}
 ===========================
 
-This document defines the `privacy-policy` well-known URI. This registration will be submitted to
-the IESG for review, approval, and registration with IANA using the template defined in
-[[RFC8615]] as follows:
+This document defines the `privacy-policy` and `terms-of-service` well-known URIs. These
+will be submitted to the IESG for review, approval, and registration with IANA using the template
+defined in [[RFC8615]] as follows:
 
 :   URI Suffix
 ::  privacy-policy
 :   Change Controller
 ::  W3C, possibly?
 :   Specification Document
-::  The [[#well-known]] section of this document.
+::  The [[#well-known-privacy-policy]] section of this document.
+:   Related Information:
+::  None.
+
+And:
+
+:   URI Suffix
+::  terms-of-service
+:   Change Controller
+::  W3C, possibly?
+:   Specification Document
+::  The [[#well-known-terms-of-service]] section of this document.
 :   Related Information:
 ::  None.
 
@@ -241,4 +347,3 @@ Acknowledgements {#acks}
 
 This document borrowed structure and content liberally from Ricky Mondello and Theresa O'Connor's
 [[change-password-url]].
-
